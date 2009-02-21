@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: TokyoCabinet::TDBQRY</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">TokyoCabinet::TDBQRY</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/tokyocabinet-doc_rb.html">
+                tokyocabinet-doc.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Query is a mechanism to <a href="TDBQRY.html#M000073">search</a> for and
+retrieve records corresponding conditions from table database.<br/>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000070">addcond</a>&nbsp;&nbsp;
+      <a href="#M000076">hint</a>&nbsp;&nbsp;
+      <a href="#M000069">new</a>&nbsp;&nbsp;
+      <a href="#M000075">proc</a>&nbsp;&nbsp;
+      <a href="#M000073">search</a>&nbsp;&nbsp;
+      <a href="#M000074">searchout</a>&nbsp;&nbsp;
+      <a href="#M000072">setmax</a>&nbsp;&nbsp;
+      <a href="#M000071">setorder</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTREQ</td>
+          <td>=</td>
+          <td class="context-item-value">1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string is equal to
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTRINC</td>
+          <td>=</td>
+          <td class="context-item-value">2</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string is included in
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTRBW</td>
+          <td>=</td>
+          <td class="context-item-value">3</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string begins with
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTREW</td>
+          <td>=</td>
+          <td class="context-item-value">4</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string ends with
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTRAND</td>
+          <td>=</td>
+          <td class="context-item-value">5</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string includes all tokens in
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTROR</td>
+          <td>=</td>
+          <td class="context-item-value">6</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string includes at least one token in
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTROREQ</td>
+          <td>=</td>
+          <td class="context-item-value">7</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string is equal to at least one token in
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCSTRRX</td>
+          <td>=</td>
+          <td class="context-item-value">8</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: string matches regular expressions of
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMEQ</td>
+          <td>=</td>
+          <td class="context-item-value">9</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is equal to
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMGT</td>
+          <td>=</td>
+          <td class="context-item-value">10</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is greater than
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMGE</td>
+          <td>=</td>
+          <td class="context-item-value">11</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is greater than or equal to
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMLT</td>
+          <td>=</td>
+          <td class="context-item-value">12</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is less than
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMLE</td>
+          <td>=</td>
+          <td class="context-item-value">13</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is less than or equal to
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMBT</td>
+          <td>=</td>
+          <td class="context-item-value">14</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is between two tokens of
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNUMOREQ</td>
+          <td>=</td>
+          <td class="context-item-value">15</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: number is equal to at least one token in
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNEGATE</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 24</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: negation flag
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QCNOIDX</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 25</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+query condition: no index flag
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QOSTRASC</td>
+          <td>=</td>
+          <td class="context-item-value">1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+order type: string ascending
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QOSTRDESC</td>
+          <td>=</td>
+          <td class="context-item-value">2</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+order type: string descending
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QONUMASC</td>
+          <td>=</td>
+          <td class="context-item-value">3</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+order type: number ascending
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QONUMDESC</td>
+          <td>=</td>
+          <td class="context-item-value">4</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+order type: number descending
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QPPUT</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 0</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+post treatment: modify the record
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QPOUT</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+post treatment: remove the record
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QPSTOP</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 24</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+post treatment: stop the iteration
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000069.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(tdb)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a query object.<br/> `<em>tdb</em>' specifies the table database
+object.<br/> The return value is the <a href="TDBQRY.html#M000069">new</a>
+query object.<br/>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000070.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000070.html');return false;">
+          <span class="method-name">addcond</span><span class="method-args">(name, op, expr)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a narrowing condition.<br/> `<em>name</em>' specifies the name of a
+column. An empty string means the primary key.<br/> `<em>op</em>'
+specifies an operation type: `TokyoCabinet::TDBQRY::QCSTREQ' for
+string which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCSTRINC' for string which is included in the
+expression, `TokyoCabinet::TDBQRY::QCSTRBW' for string which begins
+with the expression, `TokyoCabinet::TDBQRY::QCSTREW' for string which
+ends with the expression, `TokyoCabinet::TDBQRY::QCSTRAND' for string
+which includes all tokens in the expression,
+`TokyoCabinet::TDBQRY::QCSTROR' for string which includes at least
+one token in the expression, `TokyoCabinet::TDBQRY::QCSTROREQ' for
+string which is equal to at least one token in the expression,
+`TokyoCabinet::TDBQRY::QCSTRRX' for string which matches regular
+expressions of the expression, `TokyoCabinet::TDBQRY::QCNUMEQ' for
+number which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMGT' for number which is greater than the
+expression, `TokyoCabinet::TDBQRY::QCNUMGE' for number which is
+greater than or equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMLT' for number which is less than the
+expression, `TokyoCabinet::TDBQRY::QCNUMLE' for number which is less
+than or equal to the expression, `TokyoCabinet::TDBQRY::QCNUMBT' for
+number which is between two tokens of the expression,
+`TokyoCabinet::TDBQRY::QCNUMOREQ' for number which is equal to at
+least one token in the expression. All operations can be flagged by bitwise
+or: `TokyoCabinet::TDBQRY::QCNEGATE' for negation,
+`TokyoCabinet::TDBQRY::QCNOIDX' for using no index.<br/>
+`<em>expr</em>' specifies an operand exression.<br/> The return value is
+always `nil'.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000076" class="method-detail">
+        <a name="M000076"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000076.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000076.html');return false;">
+          <span class="method-name">hint</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="TDBQRY.html#M000076">hint</a> of a query object.<br/> The
+return value is the <a href="TDBQRY.html#M000076">hint</a> string.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000075" class="method-detail">
+        <a name="M000075"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000075.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000075.html');return false;">
+          <span class="method-name">proc</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Process each corresponding record.<br/> This function needs a block parameter
+of the iterator called for each record. The block receives two parameters.
+The first parameter is the primary key. The second parameter is a hash
+containing columns. It returns flags of the post treatment by bitwise or:
+`TokyoCabinet::TDBQRY::QPPUT' to modify the record,
+`TokyoCabinet::TDBQRY::QPOUT' to remove the record,
+`TokyoCabinet::TDBQRY::QPSTOP' to stop the iteration.<br/> If
+successful, the return value is true, else, it is false.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000073" class="method-detail">
+        <a name="M000073"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000073.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000073.html');return false;">
+          <span class="method-name">search</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Execute the <a href="TDBQRY.html#M000073">search</a>.<br/> The return value is
+an array of the primary keys of the corresponding records. This method does
+never fail and return an empty array even if no record corresponds.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000074" class="method-detail">
+        <a name="M000074"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000074.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000074.html');return false;">
+          <span class="method-name">searchout</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove each corresponding record.<br/> If successful, the return value is
+true, else, it is false.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000072.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000072.html');return false;">
+          <span class="method-name">setmax</span><span class="method-args">(max)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the maximum number of records of the result.<br/> `<em>max</em>'
+specifies the maximum number of records of the result.<br/> The return value
+is always `nil'.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="TDBQRY.src/M000071.html" target="Code" class="method-signature"
+            onclick="popupCode('TDBQRY.src/M000071.html');return false;">
+          <span class="method-name">setorder</span><span class="method-args">(name, type)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the order of the result.<br/> `<em>name</em>' specifies the name of
+a column. An empty string means the primary key.<br/> `<em>type</em>'
+specifies the order type: `TokyoCabinet::TDBQRY::QOSTRASC' for string
+ascending, `TokyoCabinet::TDBQRY::QOSTRDESC' for string descending,
+`TokyoCabinet::TDBQRY::QONUMASC' for number ascending,
+`TokyoCabinet::TDBQRY::QONUMDESC' for number descending.<br/> The return
+value is always `nil'.<br/>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+</div>
+
+</body>
+</html>

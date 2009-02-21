@@ -1,0 +1,14 @@
+MANIFEST
+extconf.rb
+tokyocabinet.c
+tokyocabinet.rd
+tchtest.rb
+tcbtest.rb
+tcftest.rb
+tcttest.rb
+test.rb
+example/tchdbex.rb
+example/tcbdbex.rb
+example/tcfdbex.rb
+example/tctdbex.rb
+COPYING
