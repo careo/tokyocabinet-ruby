@@ -4,9 +4,9 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mikio Hirabayashi"]
-  s.date = %q{2009-02-08}
+  s.date = %q{2009-02-15}
   s.description = %q{}
-  s.email = %q{}
+  s.email = %q{mikio@users.sourceforge.net}
   s.extensions = ["ext/extconf.rb"]
   s.extra_rdoc_files = []
   s.files = %w{
