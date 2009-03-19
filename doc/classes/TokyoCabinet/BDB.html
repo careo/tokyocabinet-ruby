@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: TokyoCabinet::BDB</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">TokyoCabinet::BDB</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/tokyocabinet-doc_rb.html">
+                tokyocabinet-doc.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+B+ tree database is a file containing a B+ tree and is handled with the B+
+tree database API. Before operations to store or retrieve records, it is
+necessary to <a href="BDB.html#M000008">open</a> a database file and
+connect the B+ tree database object to it. To avoid data missing or
+corruption, it is important to <a href="BDB.html#M000009">close</a> every
+database file when it is no longer in use.<br/> Except for the interface
+below, methods compatible with the `Hash' class are also provided;
+`[]', `[]=', `store', `delete', `fetch',
+`has_key?', `has_value?', `key', `clear',
+`size', `empty?', `each', `each_key',
+`each_value', and `keys'.<br/>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000024">adddouble</a>&nbsp;&nbsp;
+      <a href="#M000023">addint</a>&nbsp;&nbsp;
+      <a href="#M000009">close</a>&nbsp;&nbsp;
+      <a href="#M000028">copy</a>&nbsp;&nbsp;
+      <a href="#M000003">ecode</a>&nbsp;&nbsp;
+      <a href="#M000002">errmsg</a>&nbsp;&nbsp;
+      <a href="#M000034">fsiz</a>&nbsp;&nbsp;
+      <a href="#M000022">fwmkeys</a>&nbsp;&nbsp;
+      <a href="#M000017">get</a>&nbsp;&nbsp;
+      <a href="#M000018">getlist</a>&nbsp;&nbsp;
+      <a href="#M000001">new</a>&nbsp;&nbsp;
+      <a href="#M000008">open</a>&nbsp;&nbsp;
+      <a href="#M000026">optimize</a>&nbsp;&nbsp;
+      <a href="#M000015">out</a>&nbsp;&nbsp;
+      <a href="#M000016">outlist</a>&nbsp;&nbsp;
+      <a href="#M000032">path</a>&nbsp;&nbsp;
+      <a href="#M000010">put</a>&nbsp;&nbsp;
+      <a href="#M000012">putcat</a>&nbsp;&nbsp;
+      <a href="#M000013">putdup</a>&nbsp;&nbsp;
+      <a href="#M000011">putkeep</a>&nbsp;&nbsp;
+      <a href="#M000014">putlist</a>&nbsp;&nbsp;
+      <a href="#M000021">range</a>&nbsp;&nbsp;
+      <a href="#M000033">rnum</a>&nbsp;&nbsp;
+      <a href="#M000006">setcache</a>&nbsp;&nbsp;
+      <a href="#M000004">setcmpfunc</a>&nbsp;&nbsp;
+      <a href="#M000007">setxmsiz</a>&nbsp;&nbsp;
+      <a href="#M000025">sync</a>&nbsp;&nbsp;
+      <a href="#M000031">tranabort</a>&nbsp;&nbsp;
+      <a href="#M000029">tranbegin</a>&nbsp;&nbsp;
+      <a href="#M000030">trancommit</a>&nbsp;&nbsp;
+      <a href="#M000005">tune</a>&nbsp;&nbsp;
+      <a href="#M000027">vanish</a>&nbsp;&nbsp;
+      <a href="#M000019">vnum</a>&nbsp;&nbsp;
+      <a href="#M000020">vsiz</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ESUCCESS</td>
+          <td>=</td>
+          <td class="context-item-value">0</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: success
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ETHREAD</td>
+          <td>=</td>
+          <td class="context-item-value">1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: threading error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EINVALID</td>
+          <td>=</td>
+          <td class="context-item-value">2</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: invalid operation
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENOFILE</td>
+          <td>=</td>
+          <td class="context-item-value">3</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: file not found
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENOPERM</td>
+          <td>=</td>
+          <td class="context-item-value">4</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: no permission
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EMETA</td>
+          <td>=</td>
+          <td class="context-item-value">5</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: invalid meta data
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ERHEAD</td>
+          <td>=</td>
+          <td class="context-item-value">6</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: invalid record header
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EOPEN</td>
+          <td>=</td>
+          <td class="context-item-value">7</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: <a href="BDB.html#M000008">open</a> error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ECLOSE</td>
+          <td>=</td>
+          <td class="context-item-value">8</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: <a href="BDB.html#M000009">close</a> error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ETRUNC</td>
+          <td>=</td>
+          <td class="context-item-value">9</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: trunc error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ESYNC</td>
+          <td>=</td>
+          <td class="context-item-value">10</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: <a href="BDB.html#M000025">sync</a> error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ESTAT</td>
+          <td>=</td>
+          <td class="context-item-value">11</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: stat error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ESEEK</td>
+          <td>=</td>
+          <td class="context-item-value">12</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: seek error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EREAD</td>
+          <td>=</td>
+          <td class="context-item-value">13</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: read error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EWRITE</td>
+          <td>=</td>
+          <td class="context-item-value">14</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: write error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EMMAP</td>
+          <td>=</td>
+          <td class="context-item-value">15</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: mmap error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ELOCK</td>
+          <td>=</td>
+          <td class="context-item-value">16</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: lock error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EUNLINK</td>
+          <td>=</td>
+          <td class="context-item-value">17</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: unlink error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ERENAME</td>
+          <td>=</td>
+          <td class="context-item-value">18</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: rename error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EMKDIR</td>
+          <td>=</td>
+          <td class="context-item-value">19</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: mkdir error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ERMDIR</td>
+          <td>=</td>
+          <td class="context-item-value">20</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: rmdir error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EKEEP</td>
+          <td>=</td>
+          <td class="context-item-value">21</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: existing record
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ENOREC</td>
+          <td>=</td>
+          <td class="context-item-value">22</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: no record found
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EMISC</td>
+          <td>=</td>
+          <td class="context-item-value">9999</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+error code: miscellaneous error
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CMPLEXICAL</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;CMPLEXICAL&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+comparison function: by lexical order
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CMPDECIMAL</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;CMPDECIMAL&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+comparison function: as decimal strings of real numbers
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CMPINT32</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;CMPINT32&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+comparison function: as 32-bit integers in the native byte order
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">CMPINT64</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;CMPINT64&quot;</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+comparison function: as 64-bit integers in the native byte order
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">TLARGE</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 0</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+tuning option: use 64-bit bucket array
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">TDEFLATE</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+tuning option: compress each record with Deflate
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">TBZIP</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 2</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+tuning option: compress each record with BZIP2
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">TTCBS</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 3</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+tuning option: compress each record with TCBS
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OREADER</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 0</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: <a
+href="BDB.html#M000008">open</a> as a reader
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OWRITER</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 1</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: <a
+href="BDB.html#M000008">open</a> as a writer
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OCREAT</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 2</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: writer creating
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OTRUNC</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 3</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: writer truncating
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ONOLCK</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 4</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: <a
+href="BDB.html#M000008">open</a> without locking
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OLCKNB</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 5</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: lock without blocking
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">OTSYNC</td>
+          <td>=</td>
+          <td class="context-item-value">1 &lt;&lt; 6</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+<a href="BDB.html#M000008">open</a> mode: synchronize every transaction
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000001.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000001.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Create a B+ tree database object.<br/> The return value is the <a
+href="BDB.html#M000001">new</a> B+ tree database object.<br/>
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000024.html');return false;">
+          <span class="method-name">adddouble</span><span class="method-args">(key, num)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add a real number to a record.<br/> `<em>key</em>' specifies the key.<br/>
+`<em>num</em>' specifies the additional value.<br/> If successful, the
+return value is the summation value, else, it is `nil'.<br/> If the
+corresponding record exists, the value is treated as a real number and is
+added to. If no record corresponds, a <a href="BDB.html#M000001">new</a>
+record of the additional value is stored. Because records are stored in
+binary format, they should be processed with the `unpack' method with
+the `d' operator after retrieval.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000023.html');return false;">
+          <span class="method-name">addint</span><span class="method-args">(key, num)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Add an integer to a record.<br/> `<em>key</em>' specifies the key.<br/>
+`<em>num</em>' specifies the additional value.<br/> If successful, the
+return value is the summation value, else, it is `nil'.<br/> If the
+corresponding record exists, the value is treated as an integer and is
+added to. If no record corresponds, a <a href="BDB.html#M000001">new</a>
+record of the additional value is stored. Because records are stored in
+binary format, they should be processed with the `unpack' method with
+the `i' operator after retrieval.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000009.html');return false;">
+          <span class="method-name">close</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Close the database file.<br/> If successful, the return value is true, else,
+it is false.<br/> Update of a database is assured to be written when the
+database is closed. If a writer opens a database but does not <a
+href="BDB.html#M000009">close</a> it appropriately, the database will be
+broken.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000028.html');return false;">
+          <span class="method-name">copy</span><span class="method-args">(path)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Copy the database file.<br/> `<em><a
+href="BDB.html#M000032">path</a></em>' specifies the <a
+href="BDB.html#M000032">path</a> of the destination file. If it begins with
+`@', the trailing substring is executed as a command line.<br/> If
+successful, the return value is true, else, it is false. False is returned
+if the executed command returns non-zero code.<br/> The database file is
+assured to be kept synchronized and not modified while the copying or
+executing operation is in progress. So, this method is useful to create a
+backup file of the database file.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000003.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000003.html');return false;">
+          <span class="method-name">ecode</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the last happened error code.<br/> The return value is the last happened
+error code.<br/> The following error codes are defined:
+`TokyoCabinet::BDB::ESUCCESS' for success,
+`TokyoCabinet::BDB::ETHREAD' for threading error,
+`TokyoCabinet::BDB::EINVALID' for invalid operation,
+`TokyoCabinet::BDB::ENOFILE' for file not found,
+`TokyoCabinet::BDB::ENOPERM' for no permission,
+`TokyoCabinet::BDB::EMETA' for invalid meta data,
+`TokyoCabinet::BDB::ERHEAD' for invalid record header,
+`TokyoCabinet::BDB::EOPEN' for <a href="BDB.html#M000008">open</a>
+error, `TokyoCabinet::BDB::ECLOSE' for <a
+href="BDB.html#M000009">close</a> error, `TokyoCabinet::BDB::ETRUNC'
+for trunc error, `TokyoCabinet::BDB::ESYNC' for <a
+href="BDB.html#M000025">sync</a> error, `TokyoCabinet::BDB::ESTAT'
+for stat error, `TokyoCabinet::BDB::ESEEK' for seek error,
+`TokyoCabinet::BDB::EREAD' for read error,
+`TokyoCabinet::BDB::EWRITE' for write error,
+`TokyoCabinet::BDB::EMMAP' for mmap error,
+`TokyoCabinet::BDB::ELOCK' for lock error,
+`TokyoCabinet::BDB::EUNLINK' for unlink error,
+`TokyoCabinet::BDB::ERENAME' for rename error,
+`TokyoCabinet::BDB::EMKDIR' for mkdir error,
+`TokyoCabinet::BDB::ERMDIR' for rmdir error,
+`TokyoCabinet::BDB::EKEEP' for existing record,
+`TokyoCabinet::BDB::ENOREC' for no record found, and
+`TokyoCabinet::BDB::EMISC' for miscellaneous error.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000002.html');return false;">
+          <span class="method-name">errmsg</span><span class="method-args">(ecode)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the message string corresponding to an error code.<br/> `<em><a
+href="BDB.html#M000003">ecode</a></em>' specifies the error code. If
+it is not defined or negative, the last happened error code is specified.<br/>
+The return value is the message string of the error code.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000034.html');return false;">
+          <span class="method-name">fsiz</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the size of the database file.<br/> The return value is the size of the
+database file or 0 if the object does not connect to any database file.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000022.html');return false;">
+          <span class="method-name">fwmkeys</span><span class="method-args">(prefix, max)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get forward matching keys.<br/> `<em>prefix</em>' specifies the prefix
+of the corresponding keys.<br/> `<em>max</em>' specifies the maximum
+number of keys to be fetched. If it is not defined or negative, no limit is
+specified.<br/> The return value is a list object of the keys of the
+corresponding records. This method does never fail and return an empty list
+even if no record corresponds.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000017.html');return false;">
+          <span class="method-name">get</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieve a record.<br/> `<em>key</em>' specifies the key.<br/> If
+successful, the return value is the value of the corresponding record.
+`nil' is returned if no record corresponds.<br/> If the key of
+duplicated records is specified, the value of the first one is selected.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000018.html');return false;">
+          <span class="method-name">getlist</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Retrieve records.<br/> `<em>key</em>' specifies the key.<br/> If
+successful, the return value is a list object of the values of the
+corresponding records. `nil' is returned if no record corresponds.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000008.html');return false;">
+          <span class="method-name">open</span><span class="method-args">(path, omode)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Open a database file.<br/> `<em><a
+href="BDB.html#M000032">path</a></em>' specifies the <a
+href="BDB.html#M000032">path</a> of the database file.<br/>
+`<em>omode</em>' specifies the connection mode:
+`TokyoCabinet::BDB::OWRITER' as a writer,
+`TokyoCabinet::BDB::OREADER' as a reader. If the mode is
+`TokyoCabinet::BDB::OWRITER', the following may be added by
+bitwise-or: `TokyoCabinet::BDB::OCREAT', which means it creates a <a
+href="BDB.html#M000001">new</a> database if not exist,
+`TokyoCabinet::BDB::OTRUNC', which means it creates a <a
+href="BDB.html#M000001">new</a> database regardless if one exists,
+`TokyoCabinet::BDB::OTSYNC', which means every transaction
+synchronizes updated contents with the device. Both of
+`TokyoCabinet::BDB::OREADER' and `TokyoCabinet::BDB::OWRITER'
+can be added to by bitwise-or: `TokyoCabinet::BDB::ONOLCK', which
+means it opens the database file without file locking, or
+`TokyoCabinet::BDB::OLCKNB', which means locking is performed without
+blocking. If it is not defined, `TokyoCabinet::BDB::OREADER' is
+specified.<br/> If successful, the return value is true, else, it is false.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000026.html');return false;">
+          <span class="method-name">optimize</span><span class="method-args">(lmemb, nmemb, bnum, apow, fpow, opts)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Optimize the database file.<br/> `<em>lmemb</em>' specifies the number
+of members in each leaf page. If it is not defined or not more than 0, the
+default value is specified. The default value is 128.<br/>
+`<em>nmemb</em>' specifies the number of members in each non-leaf
+page. If it is not defined or not more than 0, the default value is
+specified. The default value is 256.<br/> `<em>bnum</em>' specifies the
+number of elements of the bucket array. If it is not defined or not more
+than 0, the default value is specified. The default value is two times of
+the number of pages.<br/> `<em>apow</em>' specifies the size of record
+alignment by power of 2. If it is not defined or negative, the current
+setting is not changed.<br/> `<em>fpow</em>' specifies the maximum
+number of elements of the free block pool by power of 2. If it is not
+defined or negative, the current setting is not changed.<br/>
+`<em>opts</em>' specifies options by bitwise-or:
+`TokyoCabinet::BDB::TLARGE' specifies that the size of the database
+can be larger than 2GB by using 64-bit bucket array,
+`TokyoCabinet::BDB::TDEFLATE' specifies that each record is
+compressed with Deflate encoding, `TokyoCabinet::BDB::TBZIP'
+specifies that each record is compressed with BZIP2 encoding,
+`TokyoCabinet::BDB::TTCBS' specifies that each record is compressed
+with TCBS encoding. If it is not defined or 0xff, the current setting is
+not changed.<br/> If successful, the return value is true, else, it is
+false.<br/> This method is useful to reduce the size of the database file with
+data fragmentation by successive updating.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000015.html');return false;">
+          <span class="method-name">out</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove a record.<br/> `<em>key</em>' specifies the key.<br/> If successful,
+the return value is true, else, it is false.<br/> If the key of duplicated
+records is specified, the value of the first one is selected.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000016.html');return false;">
+          <span class="method-name">outlist</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove records.<br/> `<em>key</em>' specifies the key.<br/> If successful,
+the return value is true, else, it is false.<br/> If the key of duplicated
+records is specified, all of them are removed.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000032.html');return false;">
+          <span class="method-name">path</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="BDB.html#M000032">path</a> of the database file.<br/> The
+return value is the <a href="BDB.html#M000032">path</a> of the database
+file or `nil' if the object does not connect to any database file.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000010.html');return false;">
+          <span class="method-name">put</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store a record.<br/> `<em>key</em>' specifies the key.<br/>
+`<em>value</em>' specifies the value.<br/> If successful, the return
+value is true, else, it is false.<br/> If a record with the same key exists in
+the database, it is overwritten.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000012.html');return false;">
+          <span class="method-name">putcat</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Concatenate a value at the end of the existing record.<br/>
+`<em>key</em>' specifies the key.<br/> `<em>value</em>' specifies
+the value.<br/> If successful, the return value is true, else, it is false.<br/>
+If there is no corresponding record, a <a href="BDB.html#M000001">new</a>
+record is created.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000013.html');return false;">
+          <span class="method-name">putdup</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store a record with allowing duplication of keys.<br/> `<em>key</em>'
+specifies the key.<br/> `<em>value</em>' specifies the value.<br/> If
+successful, the return value is true, else, it is false.<br/> If a record with
+the same key exists in the database, the <a href="BDB.html#M000001">new</a>
+record is placed after the existing one.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000011.html');return false;">
+          <span class="method-name">putkeep</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store a <a href="BDB.html#M000001">new</a> record.<br/> `<em>key</em>'
+specifies the key.<br/> `<em>value</em>' specifies the value.<br/> If
+successful, the return value is true, else, it is false.<br/> If a record with
+the same key exists in the database, this method has no effect.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000014.html');return false;">
+          <span class="method-name">putlist</span><span class="method-args">(key, values)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Store records with allowing duplication of keys.<br/> `<em>key</em>'
+specifies the key.<br/> `<em>values</em>' specifies an array of the
+values.<br/> If successful, the return value is true, else, it is false.<br/> If
+a record with the same key exists in the database, the <a
+href="BDB.html#M000001">new</a> records are placed after the existing
+one.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000021.html');return false;">
+          <span class="method-name">range</span><span class="method-args">(bkey, binc, ekey, einc, max)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get keys of ranged records.<br/> `<em>bkey</em>' specifies the key of
+the beginning border. If it is not defined, the first record is
+specified.<br/> `<em>binc</em>' specifies whether the beginning border
+is inclusive or not. If it is not defined, false is specified.<br/>
+`<em>ekey</em>' specifies the key of the ending border. If it is not
+defined, the last record is specified.<br/> `<em>einc</em>' specifies
+whether the ending border is inclusive or not. If it is not defined, false
+is specified.<br/> `<em>max</em>' specifies the maximum number of keys
+to be fetched. If it is not defined or negative, no limit is specified.<br/>
+The return value is a list object of the keys of the corresponding records.
+This method does never fail and return an empty list even if no record
+corresponds.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000033.html');return false;">
+          <span class="method-name">rnum</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the number of records.<br/> The return value is the number of records or 0
+if the object does not connect to any database file.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000006.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000006.html');return false;">
+          <span class="method-name">setcache</span><span class="method-args">(lcnum, ncnum)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the caching parameters.<br/> `<em>lcnum</em>' specifies the maximum
+number of leaf nodes to be cached. If it is not defined or not more than 0,
+the default value is specified. The default value is 1024.<br/>
+`<em>ncnum</em>' specifies the maximum number of non-leaf nodes to be
+cached. If it is not defined or not more than 0, the default value is
+specified. The default value is 512.<br/> If successful, the return value is
+true, else, it is false.<br/> Note that the tuning parameters of the database
+should be set before the database is opened.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000004.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000004.html');return false;">
+          <span class="method-name">setcmpfunc</span><span class="method-args">(cmp)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the custom comparison function.<br/> `<em>cmp</em>' specifies the
+custom comparison function. It should be an instance of the class
+`Proc'.<br/> If successful, the return value is true, else, it is
+false.<br/> The default comparison function compares keys of two records by
+lexical order. The constants `TokyoCabinet::BDB::CMPLEXICAL'
+(dafault), `TokyoCabinet::BDB::CMPDECIMAL',
+`TokyoCabinet::BDB::CMPINT32', and
+`TokyoCabinet::BDB::CMPINT64' are built-in. Note that the comparison
+function should be set before the database is opened. Moreover,
+user-defined comparison functions should be set every time the database is
+being opened.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000007.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000007.html');return false;">
+          <span class="method-name">setxmsiz</span><span class="method-args">(xmsiz)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the size of the extra mapped memory.<br/> `<em>xmsiz</em>' specifies
+the size of the extra mapped memory. If it is not defined or not more than
+0, the extra mapped memory is disabled. It is disabled by default.<br/> If
+successful, the return value is true, else, it is false.<br/> Note that the
+mapping parameters should be set before the database is opened.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000025.html');return false;">
+          <span class="method-name">sync</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Synchronize updated contents with the file and the device.<br/> If successful,
+the return value is true, else, it is false.<br/> This method is useful when
+another process connects the same database file.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000031.html');return false;">
+          <span class="method-name">tranabort</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Abort the transaction.<br/> If successful, the return value is true, else, it
+is false.<br/> Update in the transaction is discarded when it is aborted. The
+state of the database is rollbacked to before transaction.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000029.html');return false;">
+          <span class="method-name">tranbegin</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Begin the transaction.<br/> If successful, the return value is true, else, it
+is false.<br/> The database is locked by the thread while the transaction so
+that only one transaction can be activated with a database object at the
+same time. Thus, the serializable isolation level is assumed if every
+database operation is performed in the transaction. Because all pages are
+cached on memory while the transaction, the amount of referred records is
+limited by the memory capacity. If the database is closed during
+transaction, the transaction is aborted implicitly.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000030.html');return false;">
+          <span class="method-name">trancommit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Commit the transaction.<br/> If successful, the return value is true, else, it
+is false.<br/> Update in the transaction is fixed when it is committed
+successfully.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000005.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000005.html');return false;">
+          <span class="method-name">tune</span><span class="method-args">(lmemb, nmemb, bnum, apow, fpow, opts)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the tuning parameters.<br/> `<em>lmemb</em>' specifies the number of
+members in each leaf page. If it is not defined or not more than 0, the
+default value is specified. The default value is 128.<br/>
+`<em>nmemb</em>' specifies the number of members in each non-leaf
+page. If it is not defined or not more than 0, the default value is
+specified. The default value is 256.<br/> `<em>bnum</em>' specifies the
+number of elements of the bucket array. If it is not defined or not more
+than 0, the default value is specified. The default value is 32749.
+Suggested size of the bucket array is about from 1 to 4 times of the number
+of all pages to be stored.<br/> `<em>apow</em>' specifies the size of
+record alignment by power of 2. If it is not defined or negative, the
+default value is specified. The default value is 4 standing for 2^8=256.<br/>
+`<em>fpow</em>' specifies the maximum number of elements of the free
+block pool by power of 2. If it is not defined or negative, the default
+value is specified. The default value is 10 standing for 2^10=1024.<br/>
+`<em>opts</em>' specifies options by bitwise-or:
+`TokyoCabinet::BDB::TLARGE' specifies that the size of the database
+can be larger than 2GB by using 64-bit bucket array,
+`TokyoCabinet::BDB::TDEFLATE' specifies that each record is
+compressed with Deflate encoding, `TokyoCabinet::BDB::TBZIP'
+specifies that each record is compressed with BZIP2 encoding,
+`TokyoCabinet::BDB::TTCBS' specifies that each record is compressed
+with TCBS encoding. If it is not defined, no option is specified.<br/> If
+successful, the return value is true, else, it is false. Note that the
+tuning parameters of the database should be set before the database is
+opened.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000027.html');return false;">
+          <span class="method-name">vanish</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Remove all records.<br/> If successful, the return value is true, else, it is
+false.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000019.html');return false;">
+          <span class="method-name">vnum</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the number of records corresponding a key.<br/> `<em>key</em>'
+specifies the key.<br/> If successful, the return value is the number of the
+corresponding records, else, it is 0.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000020.html');return false;">
+          <span class="method-name">vsiz</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the size of the value of a record.<br/> `<em>key</em>' specifies the
+key.<br/> If successful, the return value is the size of the value of the
+corresponding record, else, it is -1.<br/> If the key of duplicated records is
+specified, the value of the first one is selected.<br/>
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+</div>
+
+</body>
+</html>
