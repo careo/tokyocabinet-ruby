@@ -1,7 +1,7 @@
 MANIFEST
 extconf.rb
 tokyocabinet.c
-tokyocabinet.rd
+overview.rd
 tchtest.rb
 tcbtest.rb
 tcftest.rb
