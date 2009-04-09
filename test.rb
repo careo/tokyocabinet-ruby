@@ -1,5 +1,7 @@
 #! /usr/bin/ruby
 
+require 'rbconfig'
+
 commands = [
             "tchtest.rb write casket 10000",
             "tchtest.rb read casket",
@@ -30,9 +32,10 @@ commands = [
             "tcttest.rb remove -nb casket",
             "tcttest.rb misc -tl -tb casket 100",
            ]
+rubycmd = Config::CONFIG["bindir"] + "/" + RbConfig::CONFIG['ruby_install_name']
 num = 1
 commands.each do |command|
-  rv = system("/usr/bin/ruby #{command} >/dev/null")
+  rv = system("#{rubycmd} #{command} >/dev/null")
   if rv
     printf("%03d/%03d: %s: ok\n", num, commands.size, command)
   else

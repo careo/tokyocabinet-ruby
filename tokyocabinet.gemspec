@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
   s.name = "tokyocabinet"
-  s.version = "1.21"
+  s.version = "1.22"
   s.author "Mikio Hirabayashi"
   s.email = "mikio@users.sourceforge.net"
   s.homepage = "http://tokyocabinet.sourceforge.net/"

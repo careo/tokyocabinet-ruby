@@ -764,7 +764,7 @@ module TokyoCabinet
     # `<i>width</i>' specifies the width of the value of each record.  If it is not defined or not more than 0, the default value is specified.  The default value is 255.%%
     # `<i>limsiz</i>' specifies the limit size of the database file.  If it is not defined or not more than 0, the default value is specified.  The default value is 268435456.%%
     # If successful, the return value is true, else, it is false.  Note that the tuning parameters of the database should be set before the database is opened.%%
-    def tune(bnum, width, limsiz)
+    def tune(width, limsiz)
       # (native code)
     end
     # Open a database file.%%
@@ -1009,7 +1009,7 @@ module TokyoCabinet
     end
     # Set the caching parameters.%%
     # `<i>rcnum</i>' specifies the maximum number of records to be cached.  If it is not defined or not more than 0, the record cache is disabled. It is disabled by default.%%
-    # `<i>lcnum</i>' specifies the maximum number of leaf nodes to be cached.  If it is not defined or not more than 0, the default value is specified.  The default value is 2048.%%
+    # `<i>lcnum</i>' specifies the maximum number of leaf nodes to be cached.  If it is not defined or not more than 0, the default value is specified.  The default value is 4096.%%
     # `<i>ncnum</i>' specifies the maximum number of non-leaf nodes to be cached.  If it is not defined or not more than 0, the default value is specified.  The default value is 512.%%
     # If successful, the return value is true, else, it is false.%%
     # Note that the caching parameters of the database should be set before the database is opened.%%
