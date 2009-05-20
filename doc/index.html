@@ -1,24 +1,941 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-<!--
-
-    Tokyo Cabinet
-
-  -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title>Tokyo Cabinet</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>RDoc Documentation</title>
+
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
-<frameset rows="20%, 80%">
-    <frameset cols="25%,35%,45%">
-        <frame src="fr_file_index.html"   title="Files" name="Files" />
-        <frame src="fr_class_index.html"  name="Classes" />
-        <frame src="fr_method_index.html" name="Methods" />
-    </frameset>
-    <frame src="files/tokyocabinet-doc_rb.html" name="docwin" />
-</frameset>
+<body class="indexpage">
+
+	
+	<h1>RDoc Documentation</h1>
+
+	
+	<div id="main">
+		
+<p>
+Tokyo Cabinet: a modern implementation of DBM
+</p>
+<h2>INTRODUCTION</h2>
+<p>
+Tokyo Cabinet is a library of routines for managing a database. The
+database is a simple data file containing records, each is a pair of a key
+and a value. Every key and value is serial bytes with variable length. Both
+binary data and character string can be used as a key and a value. There is
+neither concept of data tables nor data types. Records are organized in
+hash table, B+ tree, or fixed-length array.
+</p>
+<p>
+As for database of hash table, each key must be unique within a database,
+so it is impossible to store two or more records with a key overlaps. The
+following access methods are provided to the database: storing a record
+with a key and a value, deleting a record by a key, retrieving a record by
+a key. Moreover, traversal access to every key are provided, although the
+order is arbitrary. These access methods are similar to ones of DBM (or its
+followers: NDBM and GDBM) library defined in the UNIX standard. Tokyo
+Cabinet is an alternative for DBM because of its higher performance.
+</p>
+<p>
+As for database of B+ tree, records whose keys are duplicated can be
+stored. Access methods of storing, deleting, and retrieving are provided as
+with the database of hash table. Records are stored in order by a
+comparison function assigned by a user. It is possible to access each
+record with the cursor in ascending or descending order. According to this
+mechanism, forward matching search for strings and range search for
+integers are realized.
+</p>
+<p>
+As for database of fixed-length array, records are stored with unique
+natural numbers. It is impossible to store two or more records with a key
+overlaps. Moreover, the length of each record is limited by the specified
+length. Provided operations are the same as ones of hash database.
+</p>
+<p>
+Table database is also provided as a variant of hash database. Each record
+is identified by the primary key and has a set of named columns. Although
+there is no concept of data schema, it is possible to search for records
+with complex conditions efficiently by using indices of arbitrary columns.
+</p>
+<h3>Setting</h3>
+<p>
+Install the latest version of Tokyo Cabinet beforehand and get the package
+of the Ruby binding of Tokyo Cabinet.
+</p>
+<p>
+Enter the directory of the extracted package then perform installation.
+</p>
+<pre>
+ ruby extconf.rb
+ make
+ su
+ make install
+</pre>
+<p>
+The package `tokyocabinet&#8217; should be loaded in each source file of
+application programs.
+</p>
+<pre>
+ require 'tokyocabinet'
+</pre>
+<p>
+All symbols of Tokyo Cabinet are defined in the module
+`TokyoCabinet&#8217;. You can access them without any prefix by including
+the module.
+</p>
+<pre>
+ include TokyoCabinet
+</pre>
+<h1>EXAMPLE</h1>
+<p>
+The following code is an example to use a hash database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ hdb = HDB::new
+
+ # open the database
+ if !hdb.open(&quot;casket.tch&quot;, HDB::OWRITER | HDB::OCREAT)
+   ecode = hdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # store records
+ if !hdb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !hdb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !hdb.put(&quot;baz&quot;, &quot;jump&quot;)
+   ecode = hdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = hdb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = hdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # traverse records
+ hdb.iterinit
+ while key = hdb.iternext
+   value = hdb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ hdb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, hdb[&quot;quux&quot;])
+ hdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !hdb.close
+   ecode = hdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a B+ tree database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ bdb = BDB::new
+
+ # open the database
+ if !bdb.open(&quot;casket.tcb&quot;, BDB::OWRITER | BDB::OCREAT)
+   ecode = bdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # store records
+ if !bdb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !bdb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !bdb.put(&quot;baz&quot;, &quot;jump&quot;)
+   ecode = bdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = bdb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = bdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # traverse records
+ cur = BDBCUR::new(bdb)
+ cur.first
+ while key = cur.key
+   value = cur.val
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+   cur.next
+ end
+
+ # hash-like usage
+ bdb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, bdb[&quot;quux&quot;])
+ bdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !bdb.close
+   ecode = bdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a fixed-length database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ fdb = FDB::new
+
+ # open the database
+ if !fdb.open(&quot;casket.tcf&quot;, FDB::OWRITER | FDB::OCREAT)
+   ecode = fdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # store records
+ if !fdb.put(1, &quot;one&quot;) ||
+     !fdb.put(12, &quot;twelve&quot;) ||
+     !fdb.put(144, &quot;one forty four&quot;)
+   ecode = fdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = fdb.get(1)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = fdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # traverse records
+ fdb.iterinit
+ while key = fdb.iternext
+   value = fdb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ fdb[1728] = &quot;seventeen twenty eight&quot;
+ printf(&quot;%s\n&quot;, fdb[1728])
+ fdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !fdb.close
+   ecode = fdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a table database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ tdb = TDB::new
+
+ # open the database
+ if !tdb.open(&quot;casket.tct&quot;, TDB::OWRITER | TDB::OCREAT)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # store a record
+ pkey = tdb.genuid
+ cols = { &quot;name&quot; =&gt; &quot;mikio&quot;, &quot;age&quot; =&gt; &quot;30&quot;, &quot;lang&quot; =&gt; &quot;ja,en,c&quot; }
+ if !tdb.put(pkey, cols)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # store another record
+ cols = { &quot;name&quot; =&gt; &quot;falcon&quot;, &quot;age&quot; =&gt; &quot;31&quot;, &quot;lang&quot; =&gt; &quot;ja&quot;, &quot;skill&quot; =&gt; &quot;cook,blog&quot; }
+ if !tdb.put(&quot;x12345&quot;, cols)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # search for records
+ qry = TDBQRY::new(tdb)
+ qry.addcond(&quot;age&quot;, TDBQRY::QCNUMGE, &quot;20&quot;)
+ qry.addcond(&quot;lang&quot;, TDBQRY::QCSTROR, &quot;ja,en&quot;)
+ qry.setorder(&quot;name&quot;, TDBQRY::QOSTRASC)
+ qry.setlimit(10)
+ res = qry.search
+ res.each do |rkey|
+   rcols = tdb.get(rkey)
+   printf(&quot;name:%s\n&quot;, rcols[&quot;name&quot;])
+ end
+
+ # hash-like usage
+ tdb[&quot;joker&quot;] = { &quot;name&quot; =&gt; &quot;ozma&quot;, &quot;lang&quot; =&gt; &quot;en&quot;, &quot;skill&quot; =&gt; &quot;song,dance&quot; }
+ printf(&quot;%s\n&quot;, tdb[&quot;joker&quot;][&quot;name&quot;])
+ tdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value[&quot;name&quot;])
+ end
+
+ # close the database
+ if !tdb.close
+   ecode = tdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use an abstract database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ adb = ADB::new
+
+ # open the database
+ if !adb.open(&quot;casket.tch&quot;)
+   STDERR.printf(&quot;open error\n&quot;)
+ end
+
+ # store records
+ if !adb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !adb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !adb.put(&quot;baz&quot;, &quot;jump&quot;)
+   STDERR.printf(&quot;put error\n&quot;)
+ end
+
+ # retrieve records
+ value = adb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   STDERR.printf(&quot;get error\n&quot;)
+ end
+
+ # traverse records
+ adb.iterinit
+ while key = adb.iternext
+   value = adb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ adb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, adb[&quot;quux&quot;])
+ adb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !adb.close
+   STDERR.printf(&quot;close error\n&quot;)
+ end
+</pre>
+<h2>LICENSE</h2>
+<pre>
+ Copyright (C) 2006-2009 Mikio Hirabayashi
+ All rights reserved.
+</pre>
+<p>
+Tokyo Cabinet is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License or any
+later version. Tokyo Cabinet is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+General Public License for more details. You should have received a copy of
+the GNU Lesser General Public License along with Tokyo Cabinet; if not,
+write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+Boston, MA 02111-1307 USA.
+</p>
+
+	</div>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="COPYING.html">COPYING</a></li>
+		
+			<li class="file"><a href="MANIFEST.html">MANIFEST</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet_html.html">TokyoCabinet.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/ADB_html.html">ADB.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/BDB_html.html">BDB.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/BDBCUR_html.html">BDBCUR.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/FDB_html.html">FDB.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/HDB_html.html">HDB.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/TDB_html.html">TDB.html</a></li>
+		
+			<li class="file"><a href="doc/TokyoCabinet/TDBQRY_html.html">TDBQRY.html</a></li>
+		
+			<li class="file"><a href="doc/created_rid.html">created.rid</a></li>
+		
+			<li class="file"><a href="doc/index_html.html">index.html</a></li>
+		
+			<li class="file"><a href="doc/js/darkfish_js.html">darkfish.js</a></li>
+		
+			<li class="file"><a href="doc/js/jquery_js.html">jquery.js</a></li>
+		
+			<li class="file"><a href="doc/js/quicksearch_js.html">quicksearch.js</a></li>
+		
+			<li class="file"><a href="doc/js/thickbox-compressed_js.html">thickbox-compressed.js</a></li>
+		
+			<li class="file"><a href="doc/rdoc_css.html">rdoc.css</a></li>
+		
+			<li class="file"><a href="doc/tokyocabinet-doc_rb_html.html">tokyocabinet-doc_rb.html</a></li>
+		
+			<li class="file"><a href="makedoc_sh.html">makedoc.sh</a></li>
+		
+			<li class="file"><a href="overview_rd.html">overview.rd</a></li>
+		
+			<li class="file"><a href="package_sh.html">package.sh</a></li>
+		
+			<li class="file"><a href="tokyocabinet_gemspec.html">tokyocabinet.gemspec</a></li>
+		
+	</ul>
+	
+
+	<h2>Classes/Modules</h2>
+	<ul>
+		
+		<li class="module"><a href="TokyoCabinet.html">TokyoCabinet</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/ADB.html">TokyoCabinet::ADB</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/ADB_data.html">TokyoCabinet::ADB_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/BDB.html">TokyoCabinet::BDB</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/BDBCUR.html">TokyoCabinet::BDBCUR</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/BDBCUR_data.html">TokyoCabinet::BDBCUR_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/BDB_data.html">TokyoCabinet::BDB_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/FDB.html">TokyoCabinet::FDB</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/FDB_data.html">TokyoCabinet::FDB_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/HDB.html">TokyoCabinet::HDB</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/HDB_data.html">TokyoCabinet::HDB_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/TDB.html">TokyoCabinet::TDB</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/TDBQRY.html">TokyoCabinet::TDBQRY</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/TDBQRY_data.html">TokyoCabinet::TDBQRY_data</a></li>
+		
+		<li class="class"><a href="TokyoCabinet/TDB_data.html">TokyoCabinet::TDB_data</a></li>
+		
+		<li class="class"><a href="Object.html">Object</a></li>
+		
+	</ul>
+
+	<h2>Methods</h2>
+	<ul>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000159">::new &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000056">::new &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000122">::new &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000191">::new &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000199">::new &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000087">::new &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000132">::new &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000192">#addcond &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000076">#adddouble &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000148">#adddouble &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000111">#adddouble &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000178">#adddouble &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000212">#adddouble &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000177">#addint &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000211">#addint &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000110">#addint &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000075">#addint &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000147">#addint &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000201">#close &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000096">#close &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000167">#close &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000137">#close &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000064">#close &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000080">#copy &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000152">#copy &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000216">#copy &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000182">#copy &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000115">#copy &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000089">#ecode &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000161">#ecode &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000058">#ecode &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000134">#ecode &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="Object.html#M000003">#eprint &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000047">#eprint &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000012">#eprint &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000025">#eprint &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000034">#eprint &mdash; Object</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000057">#errmsg &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000133">#errmsg &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000160">#errmsg &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000088">#errmsg &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000123">#first &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000158">#fsiz &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000121">#fsiz &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000188">#fsiz &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000086">#fsiz &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000074">#fwmkeys &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000176">#fwmkeys &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000210">#fwmkeys &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000109">#fwmkeys &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000190">#genuid &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000104">#get &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000206">#get &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000172">#get &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000142">#get &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000070">#get &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000105">#getlist &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000198">#hint &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000072">#iterinit &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000144">#iterinit &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000174">#iterinit &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000208">#iterinit &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000175">#iternext &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000209">#iternext &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000145">#iternext &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000073">#iternext &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000125">#jump &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000130">#key &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000124">#last &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="Object.html#M000045">#main &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000001">#main &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000023">#main &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000009">#main &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000031">#main &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000000">#memoryusage &mdash; Object</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000127">#next &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000166">#open &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000095">#open &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000200">#open &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000136">#open &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000063">#open &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000180">#optimize &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000150">#optimize &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000113">#optimize &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000214">#optimize &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000078">#optimize &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000141">#out &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000129">#out &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000102">#out &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000171">#out &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000205">#out &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000069">#out &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000103">#outlist &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000084">#path &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000220">#path &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000119">#path &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000186">#path &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000156">#path &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000126">#prev &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000197">#proc &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="Object.html#M000044">#procmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000015">#procmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000022">#procmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000039">#procmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000055">#procmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000010">#procread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000042">#procread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000020">#procread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000032">#procread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000053">#procread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000043">#procremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000014">#procremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000036">#procremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000054">#procremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000021">#procremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000030">#procwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000052">#procwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000041">#procwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000008">#procwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000019">#procwrite &mdash; Object</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000128">#put &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000065">#put &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000202">#put &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000168">#put &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000097">#put &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000138">#put &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000068">#putasync &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000099">#putcat &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000204">#putcat &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000140">#putcat &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000170">#putcat &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000067">#putcat &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000100">#putdup &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000066">#putkeep &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000203">#putkeep &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000098">#putkeep &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000169">#putkeep &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000139">#putkeep &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000101">#putlist &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000146">#range &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000108">#range &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000157">#rnum &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000187">#rnum &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000221">#rnum &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000085">#rnum &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000120">#rnum &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="Object.html#M000040">#runmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000029">#runmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000018">#runmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000007">#runmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000051">#runmisc &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000005">#runread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000016">#runread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000037">#runread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000049">#runread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000027">#runread &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000050">#runremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000017">#runremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000028">#runremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000006">#runremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000038">#runremove &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000048">#runwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000013">#runwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000004">#runwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000035">#runwrite &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000026">#runwrite &mdash; Object</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000195">#search &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000196">#searchout &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000092">#setcache &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000163">#setcache &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000060">#setcache &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000090">#setcmpfunc &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000062">#setdfunit &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000094">#setdfunit &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000165">#setdfunit &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000189">#setindex &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000194">#setlimit &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/TDBQRY.html#M000193">#setorder &mdash; TokyoCabinet::TDBQRY</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000164">#setxmsiz &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000061">#setxmsiz &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000093">#setxmsiz &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000222">#size &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000077">#sync &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000112">#sync &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000213">#sync &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000149">#sync &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000179">#sync &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000219">#tranabort &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000118">#tranabort &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000185">#tranabort &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000155">#tranabort &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000083">#tranabort &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000116">#tranbegin &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000183">#tranbegin &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000081">#tranbegin &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000217">#tranbegin &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000153">#tranbegin &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000117">#trancommit &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000154">#trancommit &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000218">#trancommit &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000184">#trancommit &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000082">#trancommit &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000059">#tune &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000091">#tune &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000162">#tune &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000135">#tune &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="Object.html#M000024">#usage &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000033">#usage &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000046">#usage &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000002">#usage &mdash; Object</a></li>
+		
+			<li><a href="Object.html#M000011">#usage &mdash; Object</a></li>
+		
+			<li><a href="TokyoCabinet/BDBCUR.html#M000131">#val &mdash; TokyoCabinet::BDBCUR</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000114">#vanish &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000079">#vanish &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000181">#vanish &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000151">#vanish &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000215">#vanish &mdash; TokyoCabinet::ADB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000106">#vnum &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/FDB.html#M000143">#vsiz &mdash; TokyoCabinet::FDB</a></li>
+		
+			<li><a href="TokyoCabinet/TDB.html#M000173">#vsiz &mdash; TokyoCabinet::TDB</a></li>
+		
+			<li><a href="TokyoCabinet/HDB.html#M000071">#vsiz &mdash; TokyoCabinet::HDB</a></li>
+		
+			<li><a href="TokyoCabinet/BDB.html#M000107">#vsiz &mdash; TokyoCabinet::BDB</a></li>
+		
+			<li><a href="TokyoCabinet/ADB.html#M000207">#vsiz &mdash; TokyoCabinet::ADB</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
 </html>

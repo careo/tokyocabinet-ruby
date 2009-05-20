@@ -1,0 +1,2180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: TokyoCabinet::BDB</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../tokyocabinet-doc_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet-doc.rb">tokyocabinet-doc.rb</a></li>
+					
+						<li><a href="../tokyocabinet_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet.c">tokyocabinet.c</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="../Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000087">::new</a></li>
+					
+					<li><a href="#M000111">#adddouble</a></li>
+					
+					<li><a href="#M000110">#addint</a></li>
+					
+					<li><a href="#M000096">#close</a></li>
+					
+					<li><a href="#M000115">#copy</a></li>
+					
+					<li><a href="#M000089">#ecode</a></li>
+					
+					<li><a href="#M000088">#errmsg</a></li>
+					
+					<li><a href="#M000121">#fsiz</a></li>
+					
+					<li><a href="#M000109">#fwmkeys</a></li>
+					
+					<li><a href="#M000104">#get</a></li>
+					
+					<li><a href="#M000105">#getlist</a></li>
+					
+					<li><a href="#M000095">#open</a></li>
+					
+					<li><a href="#M000113">#optimize</a></li>
+					
+					<li><a href="#M000102">#out</a></li>
+					
+					<li><a href="#M000103">#outlist</a></li>
+					
+					<li><a href="#M000119">#path</a></li>
+					
+					<li><a href="#M000097">#put</a></li>
+					
+					<li><a href="#M000099">#putcat</a></li>
+					
+					<li><a href="#M000100">#putdup</a></li>
+					
+					<li><a href="#M000098">#putkeep</a></li>
+					
+					<li><a href="#M000101">#putlist</a></li>
+					
+					<li><a href="#M000108">#range</a></li>
+					
+					<li><a href="#M000120">#rnum</a></li>
+					
+					<li><a href="#M000092">#setcache</a></li>
+					
+					<li><a href="#M000090">#setcmpfunc</a></li>
+					
+					<li><a href="#M000094">#setdfunit</a></li>
+					
+					<li><a href="#M000093">#setxmsiz</a></li>
+					
+					<li><a href="#M000112">#sync</a></li>
+					
+					<li><a href="#M000118">#tranabort</a></li>
+					
+					<li><a href="#M000116">#tranbegin</a></li>
+					
+					<li><a href="#M000117">#trancommit</a></li>
+					
+					<li><a href="#M000091">#tune</a></li>
+					
+					<li><a href="#M000114">#vanish</a></li>
+					
+					<li><a href="#M000106">#vnum</a></li>
+					
+					<li><a href="#M000107">#vsiz</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../COPYING.html">COPYING</a></li>
+				
+					<li class="file"><a href="../MANIFEST.html">MANIFEST</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet_html.html">TokyoCabinet.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/ADB_html.html">ADB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDB_html.html">BDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDBCUR_html.html">BDBCUR.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/FDB_html.html">FDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/HDB_html.html">HDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDB_html.html">TDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDBQRY_html.html">TDBQRY.html</a></li>
+				
+					<li class="file"><a href="../doc/created_rid.html">created.rid</a></li>
+				
+					<li class="file"><a href="../doc/index_html.html">index.html</a></li>
+				
+					<li class="file"><a href="../doc/js/darkfish_js.html">darkfish.js</a></li>
+				
+					<li class="file"><a href="../doc/js/jquery_js.html">jquery.js</a></li>
+				
+					<li class="file"><a href="../doc/js/quicksearch_js.html">quicksearch.js</a></li>
+				
+					<li class="file"><a href="../doc/js/thickbox-compressed_js.html">thickbox-compressed.js</a></li>
+				
+					<li class="file"><a href="../doc/rdoc_css.html">rdoc.css</a></li>
+				
+					<li class="file"><a href="../doc/tokyocabinet-doc_rb_html.html">tokyocabinet-doc_rb.html</a></li>
+				
+					<li class="file"><a href="../makedoc_sh.html">makedoc.sh</a></li>
+				
+					<li class="file"><a href="../overview_rd.html">overview.rd</a></li>
+				
+					<li class="file"><a href="../package_sh.html">package.sh</a></li>
+				
+					<li class="file"><a href="../tokyocabinet_gemspec.html">tokyocabinet.gemspec</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../TokyoCabinet.html">TokyoCabinet</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB.html">TokyoCabinet::ADB</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB_data.html">TokyoCabinet::ADB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB.html">TokyoCabinet::BDB</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR.html">TokyoCabinet::BDBCUR</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR_data.html">TokyoCabinet::BDBCUR_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB_data.html">TokyoCabinet::BDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB.html">TokyoCabinet::FDB</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB_data.html">TokyoCabinet::FDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB.html">TokyoCabinet::HDB</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB_data.html">TokyoCabinet::HDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB.html">TokyoCabinet::TDB</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY.html">TokyoCabinet::TDBQRY</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY_data.html">TokyoCabinet::TDBQRY_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB_data.html">TokyoCabinet::TDB_data</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">TokyoCabinet::BDB</h1>
+
+		<div id="description">
+			<p>
+B+ tree database is a file containing a B+ tree and is handled with the B+
+tree database API. Before operations to store or retrieve records, it is
+necessary to open a database file and connect the B+ tree database object
+to it. To avoid data missing or corruption, it is important to close every
+database file when it is no longer in use.%% Except for the interface
+below, methods compatible with the `Hash&#8217; class are also provided;
+`[]&#8217;, `[]=&#8217;, `store&#8217;, `delete&#8217;, `fetch&#8217;,
+`has_key?&#8217;, `has_value?&#8217;, `key&#8217;, `clear&#8217;,
+`size&#8217;, `empty?&#8217;, `each&#8217;, `each_key&#8217;,
+`each_value&#8217;, and `keys&#8217;.%%
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="ESUCCESS">ESUCCESS</a></dt>
+				
+				<dd class="description"><p>
+error code: success
+</p></dd>
+				
+			
+				<dt><a name="ETHREAD">ETHREAD</a></dt>
+				
+				<dd class="description"><p>
+error code: threading error
+</p></dd>
+				
+			
+				<dt><a name="EINVALID">EINVALID</a></dt>
+				
+				<dd class="description"><p>
+error code: invalid operation
+</p></dd>
+				
+			
+				<dt><a name="ENOFILE">ENOFILE</a></dt>
+				
+				<dd class="description"><p>
+error code: file not found
+</p></dd>
+				
+			
+				<dt><a name="ENOPERM">ENOPERM</a></dt>
+				
+				<dd class="description"><p>
+error code: no permission
+</p></dd>
+				
+			
+				<dt><a name="EMETA">EMETA</a></dt>
+				
+				<dd class="description"><p>
+error code: invalid meta data
+</p></dd>
+				
+			
+				<dt><a name="ERHEAD">ERHEAD</a></dt>
+				
+				<dd class="description"><p>
+error code: invalid record header
+</p></dd>
+				
+			
+				<dt><a name="EOPEN">EOPEN</a></dt>
+				
+				<dd class="description"><p>
+error code: open error
+</p></dd>
+				
+			
+				<dt><a name="ECLOSE">ECLOSE</a></dt>
+				
+				<dd class="description"><p>
+error code: close error
+</p></dd>
+				
+			
+				<dt><a name="ETRUNC">ETRUNC</a></dt>
+				
+				<dd class="description"><p>
+error code: trunc error
+</p></dd>
+				
+			
+				<dt><a name="ESYNC">ESYNC</a></dt>
+				
+				<dd class="description"><p>
+error code: sync error
+</p></dd>
+				
+			
+				<dt><a name="ESTAT">ESTAT</a></dt>
+				
+				<dd class="description"><p>
+error code: stat error
+</p></dd>
+				
+			
+				<dt><a name="ESEEK">ESEEK</a></dt>
+				
+				<dd class="description"><p>
+error code: seek error
+</p></dd>
+				
+			
+				<dt><a name="EREAD">EREAD</a></dt>
+				
+				<dd class="description"><p>
+error code: read error
+</p></dd>
+				
+			
+				<dt><a name="EWRITE">EWRITE</a></dt>
+				
+				<dd class="description"><p>
+error code: write error
+</p></dd>
+				
+			
+				<dt><a name="EMMAP">EMMAP</a></dt>
+				
+				<dd class="description"><p>
+error code: mmap error
+</p></dd>
+				
+			
+				<dt><a name="ELOCK">ELOCK</a></dt>
+				
+				<dd class="description"><p>
+error code: lock error
+</p></dd>
+				
+			
+				<dt><a name="EUNLINK">EUNLINK</a></dt>
+				
+				<dd class="description"><p>
+error code: unlink error
+</p></dd>
+				
+			
+				<dt><a name="ERENAME">ERENAME</a></dt>
+				
+				<dd class="description"><p>
+error code: rename error
+</p></dd>
+				
+			
+				<dt><a name="EMKDIR">EMKDIR</a></dt>
+				
+				<dd class="description"><p>
+error code: mkdir error
+</p></dd>
+				
+			
+				<dt><a name="ERMDIR">ERMDIR</a></dt>
+				
+				<dd class="description"><p>
+error code: rmdir error
+</p></dd>
+				
+			
+				<dt><a name="EKEEP">EKEEP</a></dt>
+				
+				<dd class="description"><p>
+error code: existing record
+</p></dd>
+				
+			
+				<dt><a name="ENOREC">ENOREC</a></dt>
+				
+				<dd class="description"><p>
+error code: no record found
+</p></dd>
+				
+			
+				<dt><a name="EMISC">EMISC</a></dt>
+				
+				<dd class="description"><p>
+error code: miscellaneous error
+</p></dd>
+				
+			
+				<dt><a name="CMPLEXICAL">CMPLEXICAL</a></dt>
+				
+				<dd class="description"><p>
+comparison function: by lexical order
+</p></dd>
+				
+			
+				<dt><a name="CMPDECIMAL">CMPDECIMAL</a></dt>
+				
+				<dd class="description"><p>
+comparison function: as decimal strings of real numbers
+</p></dd>
+				
+			
+				<dt><a name="CMPINT32">CMPINT32</a></dt>
+				
+				<dd class="description"><p>
+comparison function: as 32-bit integers in the native byte order
+</p></dd>
+				
+			
+				<dt><a name="CMPINT64">CMPINT64</a></dt>
+				
+				<dd class="description"><p>
+comparison function: as 64-bit integers in the native byte order
+</p></dd>
+				
+			
+				<dt><a name="TLARGE">TLARGE</a></dt>
+				
+				<dd class="description"><p>
+tuning option: use 64-bit bucket array
+</p></dd>
+				
+			
+				<dt><a name="TDEFLATE">TDEFLATE</a></dt>
+				
+				<dd class="description"><p>
+tuning option: compress each record with Deflate
+</p></dd>
+				
+			
+				<dt><a name="TBZIP">TBZIP</a></dt>
+				
+				<dd class="description"><p>
+tuning option: compress each record with BZIP2
+</p></dd>
+				
+			
+				<dt><a name="TTCBS">TTCBS</a></dt>
+				
+				<dd class="description"><p>
+tuning option: compress each record with TCBS
+</p></dd>
+				
+			
+				<dt><a name="OREADER">OREADER</a></dt>
+				
+				<dd class="description"><p>
+open mode: open as a reader
+</p></dd>
+				
+			
+				<dt><a name="OWRITER">OWRITER</a></dt>
+				
+				<dd class="description"><p>
+open mode: open as a writer
+</p></dd>
+				
+			
+				<dt><a name="OCREAT">OCREAT</a></dt>
+				
+				<dd class="description"><p>
+open mode: writer creating
+</p></dd>
+				
+			
+				<dt><a name="OTRUNC">OTRUNC</a></dt>
+				
+				<dd class="description"><p>
+open mode: writer truncating
+</p></dd>
+				
+			
+				<dt><a name="ONOLCK">ONOLCK</a></dt>
+				
+				<dd class="description"><p>
+open mode: open without locking
+</p></dd>
+				
+			
+				<dt><a name="OLCKNB">OLCKNB</a></dt>
+				
+				<dd class="description"><p>
+open mode: lock without blocking
+</p></dd>
+				
+			
+				<dt><a name="OTSYNC">OTSYNC</a></dt>
+				
+				<dd class="description"><p>
+open mode: synchronize every transaction
+</p></dd>
+				
+			
+				<dt><a name="ESUCCESS">ESUCCESS</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ETHREAD">ETHREAD</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EINVALID">EINVALID</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ENOFILE">ENOFILE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ENOPERM">ENOPERM</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EMETA">EMETA</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ERHEAD">ERHEAD</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EOPEN">EOPEN</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ECLOSE">ECLOSE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ETRUNC">ETRUNC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ESYNC">ESYNC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ESTAT">ESTAT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ESEEK">ESEEK</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EREAD">EREAD</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EWRITE">EWRITE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EMMAP">EMMAP</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ELOCK">ELOCK</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EUNLINK">EUNLINK</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ERENAME">ERENAME</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EMKDIR">EMKDIR</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ERMDIR">ERMDIR</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EKEEP">EKEEP</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ENOREC">ENOREC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="EMISC">EMISC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CMPLEXICAL">CMPLEXICAL</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CMPDECIMAL">CMPDECIMAL</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CMPINT32">CMPINT32</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CMPINT64">CMPINT64</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="TLARGE">TLARGE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="TDEFLATE">TDEFLATE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="TBZIP">TBZIP</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="TTCBS">TTCBS</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OREADER">OREADER</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OWRITER">OWRITER</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OCREAT">OCREAT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OTRUNC">OTRUNC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="ONOLCK">ONOLCK</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OLCKNB">OLCKNB</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="OTSYNC">OTSYNC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000087"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a B+ tree database object.%% The return value is the new B+ tree
+database object.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 385</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="adddouble-method" class="method-detail ">
+				<a name="M000111"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">adddouble</span><span
+						class="method-args">(key, num)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Add a real number to a record.%% `<em>key</em>&#8217; specifies the key.%%
+`<em>num</em>&#8217; specifies the additional value.%% If successful, the
+return value is the summation value, else, it is `nil&#8217;.%% If the
+corresponding record exists, the value is treated as a real number and is
+added to. If no record corresponds, a new record of the additional value is
+stored. Because records are stored in binary format, they should be
+processed with the `unpack&#8217; method with the `d&#8217; operator after
+retrieval.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="adddouble-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 563</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">adddouble</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">num</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="addint-method" class="method-detail ">
+				<a name="M000110"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">addint</span><span
+						class="method-args">(key, num)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Add an integer to a record.%% `<em>key</em>&#8217; specifies the key.%%
+`<em>num</em>&#8217; specifies the additional value.%% If successful, the
+return value is the summation value, else, it is `nil&#8217;.%% If the
+corresponding record exists, the value is treated as an integer and is
+added to. If no record corresponds, a new record of the additional value is
+stored. Because records are stored in binary format, they should be
+processed with the `unpack&#8217; method with the `i&#8217; operator after
+retrieval.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="addint-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 555</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">addint</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">num</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="close-method" class="method-detail ">
+				<a name="M000096"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">close</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Close the database file.%% If successful, the return value is true, else,
+it is false.%% Update of a database is assured to be written when the
+database is closed. If a writer opens a database but does not close it
+appropriately, the database will be broken.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="close-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 450</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="copy-method" class="method-detail ">
+				<a name="M000115"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">copy</span><span
+						class="method-args">(path)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Copy the database file.%% `<em>path</em>&#8217; specifies the path of the
+destination file. If it begins with `@&#8217;, the trailing substring is
+executed as a command line.%% If successful, the return value is true,
+else, it is false. False is returned if the executed command returns
+non-zero code.%% The database file is assured to be kept synchronized and
+not modified while the copying or executing operation is in progress. So,
+this method is useful to create a backup file of the database file.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="copy-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 593</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">copy</span>(<span class="ruby-identifier">path</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="ecode-method" class="method-detail ">
+				<a name="M000089"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">ecode</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the last happened error code.%% The return value is the last happened
+error code.%% The following error codes are defined:
+`TokyoCabinet::BDB::ESUCCESS&#8217; for success,
+`TokyoCabinet::BDB::ETHREAD&#8217; for threading error,
+`TokyoCabinet::BDB::EINVALID&#8217; for invalid operation,
+`TokyoCabinet::BDB::ENOFILE&#8217; for file not found,
+`TokyoCabinet::BDB::ENOPERM&#8217; for no permission,
+`TokyoCabinet::BDB::EMETA&#8217; for invalid meta data,
+`TokyoCabinet::BDB::ERHEAD&#8217; for invalid record header,
+`TokyoCabinet::BDB::EOPEN&#8217; for open error,
+`TokyoCabinet::BDB::ECLOSE&#8217; for close error,
+`TokyoCabinet::BDB::ETRUNC&#8217; for trunc error,
+`TokyoCabinet::BDB::ESYNC&#8217; for sync error,
+`TokyoCabinet::BDB::ESTAT&#8217; for stat error,
+`TokyoCabinet::BDB::ESEEK&#8217; for seek error,
+`TokyoCabinet::BDB::EREAD&#8217; for read error,
+`TokyoCabinet::BDB::EWRITE&#8217; for write error,
+`TokyoCabinet::BDB::EMMAP&#8217; for mmap error,
+`TokyoCabinet::BDB::ELOCK&#8217; for lock error,
+`TokyoCabinet::BDB::EUNLINK&#8217; for unlink error,
+`TokyoCabinet::BDB::ERENAME&#8217; for rename error,
+`TokyoCabinet::BDB::EMKDIR&#8217; for mkdir error,
+`TokyoCabinet::BDB::ERMDIR&#8217; for rmdir error,
+`TokyoCabinet::BDB::EKEEP&#8217; for existing record,
+`TokyoCabinet::BDB::ENOREC&#8217; for no record found, and
+`TokyoCabinet::BDB::EMISC&#8217; for miscellaneous error.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="ecode-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 397</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ecode</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="errmsg-method" class="method-detail ">
+				<a name="M000088"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">errmsg</span><span
+						class="method-args">(ecode)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the message string corresponding to an error code.%%
+`<em>ecode</em>&#8217; specifies the error code. If it is not defined or
+negative, the last happened error code is specified.%% The return value is
+the message string of the error code.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="errmsg-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 391</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">errmsg</span>(<span class="ruby-identifier">ecode</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="fsiz-method" class="method-detail ">
+				<a name="M000121"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fsiz</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the size of the database file.%% The return value is the size of the
+database file or 0 if the object does not connect to any database file.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="fsiz-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 626</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fsiz</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="fwmkeys-method" class="method-detail ">
+				<a name="M000109"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">fwmkeys</span><span
+						class="method-args">(prefix, max)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get forward matching keys.%% `<em>prefix</em>&#8217; specifies the prefix
+of the corresponding keys.%% `<em>max</em>&#8217; specifies the maximum
+number of keys to be fetched. If it is not defined or negative, no limit is
+specified.%% The return value is a list object of the keys of the
+corresponding records. This method does never fail and return an empty list
+even if no record corresponds.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="fwmkeys-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 547</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">fwmkeys</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">max</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="get-method" class="method-detail ">
+				<a name="M000104"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">get</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Retrieve a record.%% `<em>key</em>&#8217; specifies the key.%% If
+successful, the return value is the value of the corresponding record.
+`nil&#8217; is returned if no record corresponds.%% If the key of
+duplicated records is specified, the value of the first one is selected.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="get-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 511</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="getlist-method" class="method-detail ">
+				<a name="M000105"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">getlist</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Retrieve records.%% `<em>key</em>&#8217; specifies the key.%% If
+successful, the return value is a list object of the values of the
+corresponding records. `nil&#8217; is returned if no record corresponds.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="getlist-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 517</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">getlist</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="open-method" class="method-detail ">
+				<a name="M000095"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">open</span><span
+						class="method-args">(path, omode)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Open a database file.%% `<em>path</em>&#8217; specifies the path of the
+database file.%% `<em>omode</em>&#8217; specifies the connection mode:
+`TokyoCabinet::BDB::OWRITER&#8217; as a writer,
+`TokyoCabinet::BDB::OREADER&#8217; as a reader. If the mode is
+`TokyoCabinet::BDB::OWRITER&#8217;, the following may be added by
+bitwise-or: `TokyoCabinet::BDB::OCREAT&#8217;, which means it creates a new
+database if not exist, `TokyoCabinet::BDB::OTRUNC&#8217;, which means it
+creates a new database regardless if one exists,
+`TokyoCabinet::BDB::OTSYNC&#8217;, which means every transaction
+synchronizes updated contents with the device. Both of
+`TokyoCabinet::BDB::OREADER&#8217; and `TokyoCabinet::BDB::OWRITER&#8217;
+can be added to by bitwise-or: `TokyoCabinet::BDB::ONOLCK&#8217;, which
+means it opens the database file without file locking, or
+`TokyoCabinet::BDB::OLCKNB&#8217;, which means locking is performed without
+blocking. If it is not defined, `TokyoCabinet::BDB::OREADER&#8217; is
+specified.%% If successful, the return value is true, else, it is false.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="open-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 444</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">omode</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="optimize-method" class="method-detail ">
+				<a name="M000113"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">optimize</span><span
+						class="method-args">(lmemb, nmemb, bnum, apow, fpow, opts)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Optimize the database file.%% `<em>lmemb</em>&#8217; specifies the number
+of members in each leaf page. If it is not defined or not more than 0, the
+default value is specified. The default value is 128.%%
+`<em>nmemb</em>&#8217; specifies the number of members in each non-leaf
+page. If it is not defined or not more than 0, the default value is
+specified. The default value is 256.%% `<em>bnum</em>&#8217; specifies the
+number of elements of the bucket array. If it is not defined or not more
+than 0, the default value is specified. The default value is two times of
+the number of pages.%% `<em>apow</em>&#8217; specifies the size of record
+alignment by power of 2. If it is not defined or negative, the current
+setting is not changed.%% `<em>fpow</em>&#8217; specifies the maximum
+number of elements of the free block pool by power of 2. If it is not
+defined or negative, the current setting is not changed.%%
+`<em>opts</em>&#8217; specifies options by bitwise-or:
+`TokyoCabinet::BDB::TLARGE&#8217; specifies that the size of the database
+can be larger than 2GB by using 64-bit bucket array,
+`TokyoCabinet::BDB::TDEFLATE&#8217; specifies that each record is
+compressed with Deflate encoding, `TokyoCabinet::BDB::TBZIP&#8217;
+specifies that each record is compressed with BZIP2 encoding,
+`TokyoCabinet::BDB::TTCBS&#8217; specifies that each record is compressed
+with TCBS encoding. If it is not defined or 0xff, the current setting is
+not changed.%% If successful, the return value is true, else, it is
+false.%% This method is useful to reduce the size of the database file with
+data fragmentation by successive updating.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="optimize-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 581</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">optimize</span>(<span class="ruby-identifier">lmemb</span>, <span class="ruby-identifier">nmemb</span>, <span class="ruby-identifier">bnum</span>, <span class="ruby-identifier">apow</span>, <span class="ruby-identifier">fpow</span>, <span class="ruby-identifier">opts</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="out-method" class="method-detail ">
+				<a name="M000102"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">out</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove a record.%% `<em>key</em>&#8217; specifies the key.%% If successful,
+the return value is true, else, it is false.%% If the key of duplicated
+records is specified, the value of the first one is selected.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="out-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 497</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">out</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="outlist-method" class="method-detail ">
+				<a name="M000103"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">outlist</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove records.%% `<em>key</em>&#8217; specifies the key.%% If successful,
+the return value is true, else, it is false.%% If the key of duplicated
+records is specified, all of them are removed.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="outlist-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 504</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">outlist</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="path-method" class="method-detail ">
+				<a name="M000119"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">path</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the path of the database file.%% The return value is the path of the
+database file or `nil&#8217; if the object does not connect to any database
+file.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="path-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 616</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">path</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="put-method" class="method-detail ">
+				<a name="M000097"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">put</span><span
+						class="method-args">(key, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Store a record.%% `<em>key</em>&#8217; specifies the key.%%
+`<em>value</em>&#8217; specifies the value.%% If successful, the return
+value is true, else, it is false.%% If a record with the same key exists in
+the database, it is overwritten.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="put-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 458</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">put</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="putcat-method" class="method-detail ">
+				<a name="M000099"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">putcat</span><span
+						class="method-args">(key, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Concatenate a value at the end of the existing record.%%
+`<em>key</em>&#8217; specifies the key.%% `<em>value</em>&#8217; specifies
+the value.%% If successful, the return value is true, else, it is false.%%
+If there is no corresponding record, a new record is created.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="putcat-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 474</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">putcat</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="putdup-method" class="method-detail ">
+				<a name="M000100"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">putdup</span><span
+						class="method-args">(key, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Store a record with allowing duplication of keys.%% `<em>key</em>&#8217;
+specifies the key.%% `<em>value</em>&#8217; specifies the value.%% If
+successful, the return value is true, else, it is false.%% If a record with
+the same key exists in the database, the new record is placed after the
+existing one.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="putdup-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 482</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">putdup</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="putkeep-method" class="method-detail ">
+				<a name="M000098"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">putkeep</span><span
+						class="method-args">(key, value)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Store a new record.%% `<em>key</em>&#8217; specifies the key.%%
+`<em>value</em>&#8217; specifies the value.%% If successful, the return
+value is true, else, it is false.%% If a record with the same key exists in
+the database, this method has no effect.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="putkeep-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 466</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">putkeep</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="putlist-method" class="method-detail ">
+				<a name="M000101"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">putlist</span><span
+						class="method-args">(key, values)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Store records with allowing duplication of keys.%% `<em>key</em>&#8217;
+specifies the key.%% `<em>values</em>&#8217; specifies an array of the
+values.%% If successful, the return value is true, else, it is false.%% If
+a record with the same key exists in the database, the new records are
+placed after the existing one.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="putlist-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 490</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">putlist</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">values</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="range-method" class="method-detail ">
+				<a name="M000108"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">range</span><span
+						class="method-args">(bkey, binc, ekey, einc, max)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get keys of ranged records.%% `<em>bkey</em>&#8217; specifies the key of
+the beginning border. If it is not defined, the first record is
+specified.%% `<em>binc</em>&#8217; specifies whether the beginning border
+is inclusive or not. If it is not defined, false is specified.%%
+`<em>ekey</em>&#8217; specifies the key of the ending border. If it is not
+defined, the last record is specified.%% `<em>einc</em>&#8217; specifies
+whether the ending border is inclusive or not. If it is not defined, false
+is specified.%% `<em>max</em>&#8217; specifies the maximum number of keys
+to be fetched. If it is not defined or negative, no limit is specified.%%
+The return value is a list object of the keys of the corresponding records.
+This method does never fail and return an empty list even if no record
+corresponds.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="range-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 540</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">range</span>(<span class="ruby-identifier">bkey</span>, <span class="ruby-identifier">binc</span>, <span class="ruby-identifier">ekey</span>, <span class="ruby-identifier">einc</span>, <span class="ruby-identifier">max</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="rnum-method" class="method-detail ">
+				<a name="M000120"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">rnum</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the number of records.%% The return value is the number of records or 0
+if the object does not connect to any database file.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="rnum-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 621</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rnum</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setcache-method" class="method-detail ">
+				<a name="M000092"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setcache</span><span
+						class="method-args">(lcnum, ncnum)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the caching parameters.%% `<em>lcnum</em>&#8217; specifies the maximum
+number of leaf nodes to be cached. If it is not defined or not more than 0,
+the default value is specified. The default value is 1024.%%
+`<em>ncnum</em>&#8217; specifies the maximum number of non-leaf nodes to be
+cached. If it is not defined or not more than 0, the default value is
+specified. The default value is 512.%% If successful, the return value is
+true, else, it is false.%% Note that the tuning parameters of the database
+should be set before the database is opened.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setcache-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 423</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setcache</span>(<span class="ruby-identifier">lcnum</span>, <span class="ruby-identifier">ncnum</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setcmpfunc-method" class="method-detail ">
+				<a name="M000090"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setcmpfunc</span><span
+						class="method-args">(cmp)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the custom comparison function.%% `<em>cmp</em>&#8217; specifies the
+custom comparison function. It should be an instance of the class
+`Proc&#8217;.%% If successful, the return value is true, else, it is
+false.%% The default comparison function compares keys of two records by
+lexical order. The constants `TokyoCabinet::BDB::CMPLEXICAL&#8217;
+(dafault), `TokyoCabinet::BDB::CMPDECIMAL&#8217;,
+`TokyoCabinet::BDB::CMPINT32&#8217;, and
+`TokyoCabinet::BDB::CMPINT64&#8217; are built-in. Note that the comparison
+function should be set before the database is opened. Moreover,
+user-defined comparison functions should be set every time the database is
+being opened.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setcmpfunc-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 404</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setcmpfunc</span>(<span class="ruby-identifier">cmp</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setdfunit-method" class="method-detail ">
+				<a name="M000094"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setdfunit</span><span
+						class="method-args">(dfunit)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the unit step number of auto defragmentation.%% `<em>dfunit</em>&#8217;
+specifie the unit step number. If it is not more than 0, the auto
+defragmentation is disabled. It is disabled by default.%% If successful,
+the return value is true, else, it is false.%% Note that the
+defragmentation parameters should be set before the database is opened.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setdfunit-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 437</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setdfunit</span>(<span class="ruby-identifier">dfunit</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setxmsiz-method" class="method-detail ">
+				<a name="M000093"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setxmsiz</span><span
+						class="method-args">(xmsiz)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the size of the extra mapped memory.%% `<em>xmsiz</em>&#8217; specifies
+the size of the extra mapped memory. If it is not defined or not more than
+0, the extra mapped memory is disabled. It is disabled by default.%% If
+successful, the return value is true, else, it is false.%% Note that the
+mapping parameters should be set before the database is opened.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setxmsiz-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 430</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setxmsiz</span>(<span class="ruby-identifier">xmsiz</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="sync-method" class="method-detail ">
+				<a name="M000112"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">sync</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Synchronize updated contents with the file and the device.%% If successful,
+the return value is true, else, it is false.%% This method is useful when
+another process connects the same database file.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="sync-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 569</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sync</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="tranabort-method" class="method-detail ">
+				<a name="M000118"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tranabort</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Abort the transaction.%% If successful, the return value is true, else, it
+is false.%% Update in the transaction is discarded when it is aborted. The
+state of the database is rollbacked to before transaction.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tranabort-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 611</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tranabort</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="tranbegin-method" class="method-detail ">
+				<a name="M000116"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tranbegin</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Begin the transaction.%% If successful, the return value is true, else, it
+is false.%% The database is locked by the thread while the transaction so
+that only one transaction can be activated with a database object at the
+same time. Thus, the serializable isolation level is assumed if every
+database operation is performed in the transaction. Because all pages are
+cached on memory while the transaction, the amount of referred records is
+limited by the memory capacity. If the database is closed during
+transaction, the transaction is aborted implicitly.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tranbegin-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 599</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tranbegin</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="trancommit-method" class="method-detail ">
+				<a name="M000117"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">trancommit</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Commit the transaction.%% If successful, the return value is true, else, it
+is false.%% Update in the transaction is fixed when it is committed
+successfully.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="trancommit-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 605</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trancommit</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="tune-method" class="method-detail ">
+				<a name="M000091"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">tune</span><span
+						class="method-args">(lmemb, nmemb, bnum, apow, fpow, opts)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the tuning parameters.%% `<em>lmemb</em>&#8217; specifies the number of
+members in each leaf page. If it is not defined or not more than 0, the
+default value is specified. The default value is 128.%%
+`<em>nmemb</em>&#8217; specifies the number of members in each non-leaf
+page. If it is not defined or not more than 0, the default value is
+specified. The default value is 256.%% `<em>bnum</em>&#8217; specifies the
+number of elements of the bucket array. If it is not defined or not more
+than 0, the default value is specified. The default value is 32749.
+Suggested size of the bucket array is about from 1 to 4 times of the number
+of all pages to be stored.%% `<em>apow</em>&#8217; specifies the size of
+record alignment by power of 2. If it is not defined or negative, the
+default value is specified. The default value is 4 standing for 2^8=256.%%
+`<em>fpow</em>&#8217; specifies the maximum number of elements of the free
+block pool by power of 2. If it is not defined or negative, the default
+value is specified. The default value is 10 standing for 2^10=1024.%%
+`<em>opts</em>&#8217; specifies options by bitwise-or:
+`TokyoCabinet::BDB::TLARGE&#8217; specifies that the size of the database
+can be larger than 2GB by using 64-bit bucket array,
+`TokyoCabinet::BDB::TDEFLATE&#8217; specifies that each record is
+compressed with Deflate encoding, `TokyoCabinet::BDB::TBZIP&#8217;
+specifies that each record is compressed with BZIP2 encoding,
+`TokyoCabinet::BDB::TTCBS&#8217; specifies that each record is compressed
+with TCBS encoding. If it is not defined, no option is specified.%% If
+successful, the return value is true, else, it is false. Note that the
+tuning parameters of the database should be set before the database is
+opened.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="tune-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 415</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tune</span>(<span class="ruby-identifier">lmemb</span>, <span class="ruby-identifier">nmemb</span>, <span class="ruby-identifier">bnum</span>, <span class="ruby-identifier">apow</span>, <span class="ruby-identifier">fpow</span>, <span class="ruby-identifier">opts</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="vanish-method" class="method-detail ">
+				<a name="M000114"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">vanish</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove all records.%% If successful, the return value is true, else, it is
+false.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="vanish-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 586</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vanish</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="vnum-method" class="method-detail ">
+				<a name="M000106"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">vnum</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the number of records corresponding a key.%% `<em>key</em>&#8217;
+specifies the key.%% If successful, the return value is the number of the
+corresponding records, else, it is 0.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="vnum-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 523</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vnum</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="vsiz-method" class="method-detail ">
+				<a name="M000107"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">vsiz</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the size of the value of a record.%% `<em>key</em>&#8217; specifies the
+key.%% If successful, the return value is the size of the value of the
+corresponding record, else, it is -1.%% If the key of duplicated records is
+specified, the value of the first one is selected.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="vsiz-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 530</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vsiz</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

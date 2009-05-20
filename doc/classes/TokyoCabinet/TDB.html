@@ -83,9 +83,9 @@
 Table database is a file containing records composed of the primary keys
 and arbitrary columns and is handled with the table database API. Before
 operations to store or retrieve records, it is necessary to <a
-href="TDB.html#M000113">open</a> a database file and connect the table
+href="TDB.html#M000111">open</a> a database file and connect the table
 database object to it. To avoid data missing or corruption, it is important
-to <a href="TDB.html#M000114">close</a> every database file when it is no
+to <a href="TDB.html#M000112">close</a> every database file when it is no
 longer in use.<br/> Except for the interface below, methods compatible with
 the `Hash' class are also provided; `[]', `[]=',
 `store', `delete', `fetch', `has_key?',
@@ -102,37 +102,38 @@ the `Hash' class are also provided; `[]', `[]=',
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000125">adddouble</a>&nbsp;&nbsp;
-      <a href="#M000124">addint</a>&nbsp;&nbsp;
-      <a href="#M000114">close</a>&nbsp;&nbsp;
-      <a href="#M000129">copy</a>&nbsp;&nbsp;
-      <a href="#M000109">ecode</a>&nbsp;&nbsp;
-      <a href="#M000108">errmsg</a>&nbsp;&nbsp;
-      <a href="#M000135">fsiz</a>&nbsp;&nbsp;
-      <a href="#M000123">fwmkeys</a>&nbsp;&nbsp;
-      <a href="#M000137">genuid</a>&nbsp;&nbsp;
-      <a href="#M000119">get</a>&nbsp;&nbsp;
-      <a href="#M000121">iterinit</a>&nbsp;&nbsp;
-      <a href="#M000122">iternext</a>&nbsp;&nbsp;
-      <a href="#M000107">new</a>&nbsp;&nbsp;
-      <a href="#M000113">open</a>&nbsp;&nbsp;
-      <a href="#M000127">optimize</a>&nbsp;&nbsp;
-      <a href="#M000118">out</a>&nbsp;&nbsp;
-      <a href="#M000133">path</a>&nbsp;&nbsp;
-      <a href="#M000115">put</a>&nbsp;&nbsp;
-      <a href="#M000117">putcat</a>&nbsp;&nbsp;
-      <a href="#M000116">putkeep</a>&nbsp;&nbsp;
-      <a href="#M000134">rnum</a>&nbsp;&nbsp;
-      <a href="#M000111">setcache</a>&nbsp;&nbsp;
-      <a href="#M000136">setindex</a>&nbsp;&nbsp;
-      <a href="#M000112">setxmsiz</a>&nbsp;&nbsp;
-      <a href="#M000126">sync</a>&nbsp;&nbsp;
-      <a href="#M000132">tranabort</a>&nbsp;&nbsp;
-      <a href="#M000130">tranbegin</a>&nbsp;&nbsp;
-      <a href="#M000131">trancommit</a>&nbsp;&nbsp;
-      <a href="#M000110">tune</a>&nbsp;&nbsp;
-      <a href="#M000128">vanish</a>&nbsp;&nbsp;
-      <a href="#M000120">vsiz</a>&nbsp;&nbsp;
+      <a href="#M000123">adddouble</a>&nbsp;&nbsp;
+      <a href="#M000122">addint</a>&nbsp;&nbsp;
+      <a href="#M000112">close</a>&nbsp;&nbsp;
+      <a href="#M000127">copy</a>&nbsp;&nbsp;
+      <a href="#M000106">ecode</a>&nbsp;&nbsp;
+      <a href="#M000105">errmsg</a>&nbsp;&nbsp;
+      <a href="#M000133">fsiz</a>&nbsp;&nbsp;
+      <a href="#M000121">fwmkeys</a>&nbsp;&nbsp;
+      <a href="#M000135">genuid</a>&nbsp;&nbsp;
+      <a href="#M000117">get</a>&nbsp;&nbsp;
+      <a href="#M000119">iterinit</a>&nbsp;&nbsp;
+      <a href="#M000120">iternext</a>&nbsp;&nbsp;
+      <a href="#M000104">new</a>&nbsp;&nbsp;
+      <a href="#M000111">open</a>&nbsp;&nbsp;
+      <a href="#M000125">optimize</a>&nbsp;&nbsp;
+      <a href="#M000116">out</a>&nbsp;&nbsp;
+      <a href="#M000131">path</a>&nbsp;&nbsp;
+      <a href="#M000113">put</a>&nbsp;&nbsp;
+      <a href="#M000115">putcat</a>&nbsp;&nbsp;
+      <a href="#M000114">putkeep</a>&nbsp;&nbsp;
+      <a href="#M000132">rnum</a>&nbsp;&nbsp;
+      <a href="#M000108">setcache</a>&nbsp;&nbsp;
+      <a href="#M000110">setdfunit</a>&nbsp;&nbsp;
+      <a href="#M000134">setindex</a>&nbsp;&nbsp;
+      <a href="#M000109">setxmsiz</a>&nbsp;&nbsp;
+      <a href="#M000124">sync</a>&nbsp;&nbsp;
+      <a href="#M000130">tranabort</a>&nbsp;&nbsp;
+      <a href="#M000128">tranbegin</a>&nbsp;&nbsp;
+      <a href="#M000129">trancommit</a>&nbsp;&nbsp;
+      <a href="#M000107">tune</a>&nbsp;&nbsp;
+      <a href="#M000126">vanish</a>&nbsp;&nbsp;
+      <a href="#M000118">vsiz</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -225,7 +226,7 @@ error code: invalid record header
           <td class="context-item-value">7</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="TDB.html#M000113">open</a> error
+error code: <a href="TDB.html#M000111">open</a> error
 
 </td>
         </tr>
@@ -235,7 +236,7 @@ error code: <a href="TDB.html#M000113">open</a> error
           <td class="context-item-value">8</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="TDB.html#M000114">close</a> error
+error code: <a href="TDB.html#M000112">close</a> error
 
 </td>
         </tr>
@@ -255,7 +256,7 @@ error code: trunc error
           <td class="context-item-value">10</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="TDB.html#M000126">sync</a> error
+error code: <a href="TDB.html#M000124">sync</a> error
 
 </td>
         </tr>
@@ -435,8 +436,8 @@ tuning option: compress each record with TCBS
           <td class="context-item-value">1 &lt;&lt; 0</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: <a
-href="TDB.html#M000113">open</a> as a reader
+<a href="TDB.html#M000111">open</a> mode: <a
+href="TDB.html#M000111">open</a> as a reader
 
 </td>
         </tr>
@@ -446,8 +447,8 @@ href="TDB.html#M000113">open</a> as a reader
           <td class="context-item-value">1 &lt;&lt; 1</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: <a
-href="TDB.html#M000113">open</a> as a writer
+<a href="TDB.html#M000111">open</a> mode: <a
+href="TDB.html#M000111">open</a> as a writer
 
 </td>
         </tr>
@@ -457,7 +458,7 @@ href="TDB.html#M000113">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 2</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: writer creating
+<a href="TDB.html#M000111">open</a> mode: writer creating
 
 </td>
         </tr>
@@ -467,7 +468,7 @@ href="TDB.html#M000113">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 3</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: writer truncating
+<a href="TDB.html#M000111">open</a> mode: writer truncating
 
 </td>
         </tr>
@@ -477,8 +478,8 @@ href="TDB.html#M000113">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 4</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: <a
-href="TDB.html#M000113">open</a> without locking
+<a href="TDB.html#M000111">open</a> mode: <a
+href="TDB.html#M000111">open</a> without locking
 
 </td>
         </tr>
@@ -488,7 +489,7 @@ href="TDB.html#M000113">open</a> without locking
           <td class="context-item-value">1 &lt;&lt; 5</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: lock without blocking
+<a href="TDB.html#M000111">open</a> mode: lock without blocking
 
 </td>
         </tr>
@@ -498,7 +499,7 @@ href="TDB.html#M000113">open</a> without locking
           <td class="context-item-value">1 &lt;&lt; 6</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="TDB.html#M000113">open</a> mode: synchronize every transaction
+<a href="TDB.html#M000111">open</a> mode: synchronize every transaction
 
 </td>
         </tr>
@@ -528,7 +529,7 @@ index type: decimal string
           <td class="context-item-value">9998</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-index type: <a href="TDB.html#M000127">optimize</a>
+index type: <a href="TDB.html#M000125">optimize</a>
 
 </td>
         </tr>
@@ -565,12 +566,12 @@ index type: keep existing index
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000107" class="method-detail">
-        <a name="M000107"></a>
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000107.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000107.html');return false;">
+          <a href="TDB.src/M000104.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000104.html');return false;">
           <span class="method-name">new</span><span class="method-args">()</span>
           </a>
         </div>
@@ -578,19 +579,19 @@ index type: keep existing index
         <div class="method-description">
           <p>
 Create a table database object.<br/> The return value is the <a
-href="TDB.html#M000107">new</a> table database object.<br/>
+href="TDB.html#M000104">new</a> table database object.<br/>
 </p>
         </div>
       </div>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000125" class="method-detail">
-        <a name="M000125"></a>
+      <div id="method-M000123" class="method-detail">
+        <a name="M000123"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000125.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000125.html');return false;">
+          <a href="TDB.src/M000123.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000123.html');return false;">
           <span class="method-name">adddouble</span><span class="method-args">(pkey, num)</span>
           </a>
         </div>
@@ -602,19 +603,19 @@ key.<br/> `<em>num</em>' specifies the additional value.<br/> If
 successful, the return value is the summation value, else, it is
 `nil'.<br/> If the corresponding record exists, the value is treated as
 a real number and is added to. If no record corresponds, a <a
-href="TDB.html#M000107">new</a> record of the additional value is stored.
+href="TDB.html#M000104">new</a> record of the additional value is stored.
 Because records are stored in binary format, they should be processed with
 the `unpack' method with the `d' operator after retrieval.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000124" class="method-detail">
-        <a name="M000124"></a>
+      <div id="method-M000122" class="method-detail">
+        <a name="M000122"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000124.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000124.html');return false;">
+          <a href="TDB.src/M000122.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000122.html');return false;">
           <span class="method-name">addint</span><span class="method-args">(pkey, num)</span>
           </a>
         </div>
@@ -626,19 +627,19 @@ key.<br/> `<em>num</em>' specifies the additional value.<br/> If
 successful, the return value is the summation value, else, it is
 `nil'.<br/> If the corresponding record exists, the value is treated as
 an integer and is added to. If no record corresponds, a <a
-href="TDB.html#M000107">new</a> record of the additional value is stored.
+href="TDB.html#M000104">new</a> record of the additional value is stored.
 Because records are stored in binary format, they should be processed with
 the `unpack' method with the `i' operator after retrieval.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000114" class="method-detail">
-        <a name="M000114"></a>
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000114.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000114.html');return false;">
+          <a href="TDB.src/M000112.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000112.html');return false;">
           <span class="method-name">close</span><span class="method-args">()</span>
           </a>
         </div>
@@ -648,18 +649,18 @@ the `unpack' method with the `i' operator after retrieval.<br/>
 Close the database file.<br/> If successful, the return value is true, else,
 it is false.<br/> Update of a database is assured to be written when the
 database is closed. If a writer opens a database but does not <a
-href="TDB.html#M000114">close</a> it appropriately, the database will be
+href="TDB.html#M000112">close</a> it appropriately, the database will be
 broken.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000129" class="method-detail">
-        <a name="M000129"></a>
+      <div id="method-M000127" class="method-detail">
+        <a name="M000127"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000129.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000129.html');return false;">
+          <a href="TDB.src/M000127.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000127.html');return false;">
           <span class="method-name">copy</span><span class="method-args">(path)</span>
           </a>
         </div>
@@ -667,8 +668,8 @@ broken.<br/>
         <div class="method-description">
           <p>
 Copy the database file.<br/> `<em><a
-href="TDB.html#M000133">path</a></em>' specifies the <a
-href="TDB.html#M000133">path</a> of the destination file. If it begins with
+href="TDB.html#M000131">path</a></em>' specifies the <a
+href="TDB.html#M000131">path</a> of the destination file. If it begins with
 `@', the trailing substring is executed as a command line.<br/> If
 successful, the return value is true, else, it is false. False is returned
 if the executed command returns non-zero code.<br/> The database file is
@@ -679,12 +680,12 @@ backup file of the database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000109" class="method-detail">
-        <a name="M000109"></a>
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000109.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000109.html');return false;">
+          <a href="TDB.src/M000106.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000106.html');return false;">
           <span class="method-name">ecode</span><span class="method-args">()</span>
           </a>
         </div>
@@ -700,11 +701,11 @@ error code.<br/> The following error codes are defined:
 `TokyoCabinet::TDB::ENOPERM' for no permission,
 `TokyoCabinet::TDB::EMETA' for invalid meta data,
 `TokyoCabinet::TDB::ERHEAD' for invalid record header,
-`TokyoCabinet::TDB::EOPEN' for <a href="TDB.html#M000113">open</a>
+`TokyoCabinet::TDB::EOPEN' for <a href="TDB.html#M000111">open</a>
 error, `TokyoCabinet::TDB::ECLOSE' for <a
-href="TDB.html#M000114">close</a> error, `TokyoCabinet::TDB::ETRUNC'
+href="TDB.html#M000112">close</a> error, `TokyoCabinet::TDB::ETRUNC'
 for trunc error, `TokyoCabinet::TDB::ESYNC' for <a
-href="TDB.html#M000126">sync</a> error, `TokyoCabinet::TDB::ESTAT'
+href="TDB.html#M000124">sync</a> error, `TokyoCabinet::TDB::ESTAT'
 for stat error, `TokyoCabinet::TDB::ESEEK' for seek error,
 `TokyoCabinet::TDB::EREAD' for read error,
 `TokyoCabinet::TDB::EWRITE' for write error,
@@ -721,12 +722,12 @@ for stat error, `TokyoCabinet::TDB::ESEEK' for seek error,
         </div>
       </div>
 
-      <div id="method-M000108" class="method-detail">
-        <a name="M000108"></a>
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000108.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000108.html');return false;">
+          <a href="TDB.src/M000105.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000105.html');return false;">
           <span class="method-name">errmsg</span><span class="method-args">(ecode)</span>
           </a>
         </div>
@@ -734,19 +735,19 @@ for stat error, `TokyoCabinet::TDB::ESEEK' for seek error,
         <div class="method-description">
           <p>
 Get the message string corresponding to an error code.<br/> `<em><a
-href="TDB.html#M000109">ecode</a></em>' specifies the error code. If
+href="TDB.html#M000106">ecode</a></em>' specifies the error code. If
 it is not defined or negative, the last happened error code is specified.<br/>
 The return value is the message string of the error code.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000135" class="method-detail">
-        <a name="M000135"></a>
+      <div id="method-M000133" class="method-detail">
+        <a name="M000133"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000135.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000135.html');return false;">
+          <a href="TDB.src/M000133.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000133.html');return false;">
           <span class="method-name">fsiz</span><span class="method-args">()</span>
           </a>
         </div>
@@ -759,12 +760,12 @@ database file or 0 if the object does not connect to any database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000123" class="method-detail">
-        <a name="M000123"></a>
+      <div id="method-M000121" class="method-detail">
+        <a name="M000121"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000123.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000123.html');return false;">
+          <a href="TDB.src/M000121.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000121.html');return false;">
           <span class="method-name">fwmkeys</span><span class="method-args">(prefix, max)</span>
           </a>
         </div>
@@ -782,12 +783,12 @@ because every key in the database is scanned.<br/>
         </div>
       </div>
 
-      <div id="method-M000137" class="method-detail">
-        <a name="M000137"></a>
+      <div id="method-M000135" class="method-detail">
+        <a name="M000135"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000137.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000137.html');return false;">
+          <a href="TDB.src/M000135.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000135.html');return false;">
           <span class="method-name">genuid</span><span class="method-args">()</span>
           </a>
         </div>
@@ -795,17 +796,17 @@ because every key in the database is scanned.<br/>
         <div class="method-description">
           <p>
 Generate a unique ID number.<br/> The return value is the <a
-href="TDB.html#M000107">new</a> unique ID number or -1 on failure.<br/>
+href="TDB.html#M000104">new</a> unique ID number or -1 on failure.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000119" class="method-detail">
-        <a name="M000119"></a>
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000119.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000119.html');return false;">
+          <a href="TDB.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000117.html');return false;">
           <span class="method-name">get</span><span class="method-args">(pkey)</span>
           </a>
         </div>
@@ -819,12 +820,12 @@ record. `nil' is returned if no record corresponds.<br/>
         </div>
       </div>
 
-      <div id="method-M000121" class="method-detail">
-        <a name="M000121"></a>
+      <div id="method-M000119" class="method-detail">
+        <a name="M000119"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000121.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000121.html');return false;">
+          <a href="TDB.src/M000119.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000119.html');return false;">
           <span class="method-name">iterinit</span><span class="method-args">()</span>
           </a>
         </div>
@@ -838,12 +839,12 @@ every record stored in a database.<br/>
         </div>
       </div>
 
-      <div id="method-M000122" class="method-detail">
-        <a name="M000122"></a>
+      <div id="method-M000120" class="method-detail">
+        <a name="M000120"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000122.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000122.html');return false;">
+          <a href="TDB.src/M000120.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000120.html');return false;">
           <span class="method-name">iternext</span><span class="method-args">()</span>
           </a>
         </div>
@@ -852,8 +853,8 @@ every record stored in a database.<br/>
           <p>
 Get the next primary key of the iterator.<br/> If successful, the return value
 is the next primary key, else, it is `nil'. `nil' is returned
-when no record is to be <a href="TDB.html#M000119">get</a> <a
-href="TDB.html#M000118">out</a> of the iterator.<br/> It is possible to access
+when no record is to be <a href="TDB.html#M000117">get</a> <a
+href="TDB.html#M000116">out</a> of the iterator.<br/> It is possible to access
 every record by iteration of calling this method. It is allowed to update
 or remove records whose keys are fetched while the iteration. However, it
 is not assured if updating the database is occurred while the iteration.
@@ -864,12 +865,12 @@ access.<br/>
         </div>
       </div>
 
-      <div id="method-M000113" class="method-detail">
-        <a name="M000113"></a>
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000113.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000113.html');return false;">
+          <a href="TDB.src/M000111.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000111.html');return false;">
           <span class="method-name">open</span><span class="method-args">(path, omode)</span>
           </a>
         </div>
@@ -877,16 +878,16 @@ access.<br/>
         <div class="method-description">
           <p>
 Open a database file.<br/> `<em><a
-href="TDB.html#M000133">path</a></em>' specifies the <a
-href="TDB.html#M000133">path</a> of the database file.<br/>
+href="TDB.html#M000131">path</a></em>' specifies the <a
+href="TDB.html#M000131">path</a> of the database file.<br/>
 `<em>omode</em>' specifies the connection mode:
 `TokyoCabinet::TDB::OWRITER' as a writer,
 `TokyoCabinet::TDB::OREADER' as a reader. If the mode is
 `TokyoCabinet::TDB::OWRITER', the following may be added by
 bitwise-or: `TokyoCabinet::TDB::OCREAT', which means it creates a <a
-href="TDB.html#M000107">new</a> database if not exist,
+href="TDB.html#M000104">new</a> database if not exist,
 `TokyoCabinet::TDB::OTRUNC', which means it creates a <a
-href="TDB.html#M000107">new</a> database regardless if one exists,
+href="TDB.html#M000104">new</a> database regardless if one exists,
 `TokyoCabinet::TDB::OTSYNC', which means every transaction
 synchronizes updated contents with the device. Both of
 `TokyoCabinet::TDB::OREADER' and `TokyoCabinet::TDB::OWRITER'
@@ -899,12 +900,12 @@ specified.<br/> If successful, the return value is true, else, it is false.<br/>
         </div>
       </div>
 
-      <div id="method-M000127" class="method-detail">
-        <a name="M000127"></a>
+      <div id="method-M000125" class="method-detail">
+        <a name="M000125"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000127.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000127.html');return false;">
+          <a href="TDB.src/M000125.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000125.html');return false;">
           <span class="method-name">optimize</span><span class="method-args">(bnum, apow, fpow, opts)</span>
           </a>
         </div>
@@ -933,12 +934,12 @@ data fragmentation by successive updating.<br/>
         </div>
       </div>
 
-      <div id="method-M000118" class="method-detail">
-        <a name="M000118"></a>
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000118.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000118.html');return false;">
+          <a href="TDB.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000116.html');return false;">
           <span class="method-name">out</span><span class="method-args">(pkey)</span>
           </a>
         </div>
@@ -951,31 +952,31 @@ successful, the return value is true, else, it is false.<br/>
         </div>
       </div>
 
-      <div id="method-M000133" class="method-detail">
-        <a name="M000133"></a>
+      <div id="method-M000131" class="method-detail">
+        <a name="M000131"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000133.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000133.html');return false;">
+          <a href="TDB.src/M000131.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000131.html');return false;">
           <span class="method-name">path</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Get the <a href="TDB.html#M000133">path</a> of the database file.<br/> The
-return value is the <a href="TDB.html#M000133">path</a> of the database
+Get the <a href="TDB.html#M000131">path</a> of the database file.<br/> The
+return value is the <a href="TDB.html#M000131">path</a> of the database
 file or `nil' if the object does not connect to any database file.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000115" class="method-detail">
-        <a name="M000115"></a>
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000115.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000115.html');return false;">
+          <a href="TDB.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000113.html');return false;">
           <span class="method-name">put</span><span class="method-args">(pkey, cols)</span>
           </a>
         </div>
@@ -990,12 +991,12 @@ key exists in the database, it is overwritten.<br/>
         </div>
       </div>
 
-      <div id="method-M000117" class="method-detail">
-        <a name="M000117"></a>
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000117.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000117.html');return false;">
+          <a href="TDB.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000115.html');return false;">
           <span class="method-name">putcat</span><span class="method-args">(pkey, value)</span>
           </a>
         </div>
@@ -1006,24 +1007,24 @@ Concatenate columns of the existing record.<br/> `<em>pkey</em>'
 specifies the primary key.<br/> `<em>cols</em>' specifies a hash
 containing columns.<br/> If successful, the return value is true, else, it is
 false.<br/> If there is no corresponding record, a <a
-href="TDB.html#M000107">new</a> record is created.<br/>
+href="TDB.html#M000104">new</a> record is created.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000116" class="method-detail">
-        <a name="M000116"></a>
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000116.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000116.html');return false;">
+          <a href="TDB.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000114.html');return false;">
           <span class="method-name">putkeep</span><span class="method-args">(pkey, cols)</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Store a <a href="TDB.html#M000107">new</a> record.<br/> `<em>pkey</em>'
+Store a <a href="TDB.html#M000104">new</a> record.<br/> `<em>pkey</em>'
 specifies the primary key.<br/> `<em>cols</em>' specifies a hash
 containing columns.<br/> If successful, the return value is true, else, it is
 false.<br/> If a record with the same key exists in the database, this method
@@ -1032,12 +1033,12 @@ has no effect.<br/>
         </div>
       </div>
 
-      <div id="method-M000134" class="method-detail">
-        <a name="M000134"></a>
+      <div id="method-M000132" class="method-detail">
+        <a name="M000132"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000134.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000134.html');return false;">
+          <a href="TDB.src/M000132.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000132.html');return false;">
           <span class="method-name">rnum</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1050,12 +1051,12 @@ if the object does not connect to any database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000111" class="method-detail">
-        <a name="M000111"></a>
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000111.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000111.html');return false;">
+          <a href="TDB.src/M000108.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000108.html');return false;">
           <span class="method-name">setcache</span><span class="method-args">(rcnum, lcnum, ncnum)</span>
           </a>
         </div>
@@ -1077,12 +1078,33 @@ database is opened.<br/>
         </div>
       </div>
 
-      <div id="method-M000136" class="method-detail">
-        <a name="M000136"></a>
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000136.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000136.html');return false;">
+          <a href="TDB.src/M000110.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000110.html');return false;">
+          <span class="method-name">setdfunit</span><span class="method-args">(dfunit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the unit step number of auto defragmentation.<br/> `<em>dfunit</em>'
+specifie the unit step number. If it is not more than 0, the auto
+defragmentation is disabled. It is disabled by default.<br/> If successful,
+the return value is true, else, it is false.<br/> Note that the
+defragmentation parameters should be set before the database is opened.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000134" class="method-detail">
+        <a name="M000134"></a>
+
+        <div class="method-heading">
+          <a href="TDB.src/M000134.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000134.html');return false;">
           <span class="method-name">setindex</span><span class="method-args">(name, type)</span>
           </a>
         </div>
@@ -1103,12 +1125,12 @@ value is true, else, it is false.<br/>
         </div>
       </div>
 
-      <div id="method-M000112" class="method-detail">
-        <a name="M000112"></a>
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000112.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000112.html');return false;">
+          <a href="TDB.src/M000109.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000109.html');return false;">
           <span class="method-name">setxmsiz</span><span class="method-args">(xmsiz)</span>
           </a>
         </div>
@@ -1124,12 +1146,12 @@ mapping parameters should be set before the database is opened.<br/>
         </div>
       </div>
 
-      <div id="method-M000126" class="method-detail">
-        <a name="M000126"></a>
+      <div id="method-M000124" class="method-detail">
+        <a name="M000124"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000126.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000126.html');return false;">
+          <a href="TDB.src/M000124.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000124.html');return false;">
           <span class="method-name">sync</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1143,12 +1165,12 @@ another process connects the same database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000132" class="method-detail">
-        <a name="M000132"></a>
+      <div id="method-M000130" class="method-detail">
+        <a name="M000130"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000132.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000132.html');return false;">
+          <a href="TDB.src/M000130.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000130.html');return false;">
           <span class="method-name">tranabort</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1162,12 +1184,12 @@ state of the database is rollbacked to before transaction.<br/>
         </div>
       </div>
 
-      <div id="method-M000130" class="method-detail">
-        <a name="M000130"></a>
+      <div id="method-M000128" class="method-detail">
+        <a name="M000128"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000130.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000130.html');return false;">
+          <a href="TDB.src/M000128.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000128.html');return false;">
           <span class="method-name">tranbegin</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1185,12 +1207,12 @@ is closed during transaction, the transaction is aborted implicitly.<br/>
         </div>
       </div>
 
-      <div id="method-M000131" class="method-detail">
-        <a name="M000131"></a>
+      <div id="method-M000129" class="method-detail">
+        <a name="M000129"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000131.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000131.html');return false;">
+          <a href="TDB.src/M000129.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000129.html');return false;">
           <span class="method-name">trancommit</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1204,12 +1226,12 @@ successfully.<br/>
         </div>
       </div>
 
-      <div id="method-M000110" class="method-detail">
-        <a name="M000110"></a>
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000110.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000110.html');return false;">
+          <a href="TDB.src/M000107.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000107.html');return false;">
           <span class="method-name">tune</span><span class="method-args">(bnum, apow, fpow, opts)</span>
           </a>
         </div>
@@ -1241,12 +1263,12 @@ opened.<br/>
         </div>
       </div>
 
-      <div id="method-M000128" class="method-detail">
-        <a name="M000128"></a>
+      <div id="method-M000126" class="method-detail">
+        <a name="M000126"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000128.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000128.html');return false;">
+          <a href="TDB.src/M000126.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000126.html');return false;">
           <span class="method-name">vanish</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1259,12 +1281,12 @@ false.<br/>
         </div>
       </div>
 
-      <div id="method-M000120" class="method-detail">
-        <a name="M000120"></a>
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
 
         <div class="method-heading">
-          <a href="TDB.src/M000120.html" target="Code" class="method-signature"
-            onclick="popupCode('TDB.src/M000120.html');return false;">
+          <a href="TDB.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('TDB.src/M000118.html');return false;">
           <span class="method-name">vsiz</span><span class="method-args">(pkey)</span>
           </a>
         </div>

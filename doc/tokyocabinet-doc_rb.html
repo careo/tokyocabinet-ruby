@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: tokyocabinet-doc.rb [RDoc Documentation]</title>
+
+	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file file-popup">
+	<div id="metadata">
+		<dl>
+			<dt class="modified-date">Last Modified</dt>
+			<dd class="modified-date">2009-05-19 04:04:17 -0300</dd>
+
+			
+			<dt class="requires">Requires</dt>
+			<dd class="requires">
+				<ul>
+				
+				</ul>
+			</dd>
+			
+
+			
+		</dl>
+	</div>
+
+	<div id="documentation">
+		
+		<div class="description">
+			<h2>Description</h2>
+			<h1>Ruby Binding of Tokyo Cabinet</h1>
+<p>
+Tokyo Cabinet: a modern implementation of DBM
+</p>
+<h2>INTRODUCTION</h2>
+<p>
+Tokyo Cabinet is a library of routines for managing a database. The
+database is a simple data file containing records, each is a pair of a key
+and a value. Every key and value is serial bytes with variable length. Both
+binary data and character string can be used as a key and a value. There is
+neither concept of data tables nor data types. Records are organized in
+hash table, B+ tree, or fixed-length array.
+</p>
+<p>
+As for database of hash table, each key must be unique within a database,
+so it is impossible to store two or more records with a key overlaps. The
+following access methods are provided to the database: storing a record
+with a key and a value, deleting a record by a key, retrieving a record by
+a key. Moreover, traversal access to every key are provided, although the
+order is arbitrary. These access methods are similar to ones of DBM (or its
+followers: NDBM and GDBM) library defined in the UNIX standard. Tokyo
+Cabinet is an alternative for DBM because of its higher performance.
+</p>
+<p>
+As for database of B+ tree, records whose keys are duplicated can be
+stored. Access methods of storing, deleting, and retrieving are provided as
+with the database of hash table. Records are stored in order by a
+comparison function assigned by a user. It is possible to access each
+record with the cursor in ascending or descending order. According to this
+mechanism, forward matching search for strings and range search for
+integers are realized.
+</p>
+<p>
+As for database of fixed-length array, records are stored with unique
+natural numbers. It is impossible to store two or more records with a key
+overlaps. Moreover, the length of each record is limited by the specified
+length. Provided operations are the same as ones of hash database.
+</p>
+<p>
+Table database is also provided as a variant of hash database. Each record
+is identified by the primary key and has a set of named columns. Although
+there is no concept of data schema, it is possible to search for records
+with complex conditions efficiently by using indices of arbitrary columns.
+</p>
+<h3>Setting</h3>
+<p>
+Install the latest version of Tokyo Cabinet beforehand and get the package
+of the Ruby binding of Tokyo Cabinet.
+</p>
+<p>
+Enter the directory of the extracted package then perform installation.
+</p>
+<pre>
+ ruby extconf.rb
+ make
+ su
+ make install
+</pre>
+<p>
+The package `tokyocabinet&#8217; should be loaded in each source file of
+application programs.
+</p>
+<pre>
+ require 'tokyocabinet'
+</pre>
+<p>
+All symbols of Tokyo Cabinet are defined in the module
+`TokyoCabinet&#8217;. You can access them without any prefix by including
+the module.
+</p>
+<pre>
+ include TokyoCabinet
+</pre>
+<h1>EXAMPLE</h1>
+<p>
+The following code is an example to use a hash database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ hdb = HDB::new
+
+ # open the database
+ if !hdb.open(&quot;casket.tch&quot;, HDB::OWRITER | HDB::OCREAT)
+   ecode = hdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # store records
+ if !hdb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !hdb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !hdb.put(&quot;baz&quot;, &quot;jump&quot;)
+   ecode = hdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = hdb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = hdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+
+ # traverse records
+ hdb.iterinit
+ while key = hdb.iternext
+   value = hdb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ hdb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, hdb[&quot;quux&quot;])
+ hdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !hdb.close
+   ecode = hdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, hdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a B+ tree database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ bdb = BDB::new
+
+ # open the database
+ if !bdb.open(&quot;casket.tcb&quot;, BDB::OWRITER | BDB::OCREAT)
+   ecode = bdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # store records
+ if !bdb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !bdb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !bdb.put(&quot;baz&quot;, &quot;jump&quot;)
+   ecode = bdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = bdb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = bdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+
+ # traverse records
+ cur = BDBCUR::new(bdb)
+ cur.first
+ while key = cur.key
+   value = cur.val
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+   cur.next
+ end
+
+ # hash-like usage
+ bdb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, bdb[&quot;quux&quot;])
+ bdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !bdb.close
+   ecode = bdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, bdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a fixed-length database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ fdb = FDB::new
+
+ # open the database
+ if !fdb.open(&quot;casket.tcf&quot;, FDB::OWRITER | FDB::OCREAT)
+   ecode = fdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # store records
+ if !fdb.put(1, &quot;one&quot;) ||
+     !fdb.put(12, &quot;twelve&quot;) ||
+     !fdb.put(144, &quot;one forty four&quot;)
+   ecode = fdb.ecode
+   STDERR.printf(&quot;put error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # retrieve records
+ value = fdb.get(1)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   ecode = fdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+
+ # traverse records
+ fdb.iterinit
+ while key = fdb.iternext
+   value = fdb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ fdb[1728] = &quot;seventeen twenty eight&quot;
+ printf(&quot;%s\n&quot;, fdb[1728])
+ fdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !fdb.close
+   ecode = fdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, fdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use a table database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ tdb = TDB::new
+
+ # open the database
+ if !tdb.open(&quot;casket.tct&quot;, TDB::OWRITER | TDB::OCREAT)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;open error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # store a record
+ pkey = tdb.genuid
+ cols = { &quot;name&quot; =&gt; &quot;mikio&quot;, &quot;age&quot; =&gt; &quot;30&quot;, &quot;lang&quot; =&gt; &quot;ja,en,c&quot; }
+ if !tdb.put(pkey, cols)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # store another record
+ cols = { &quot;name&quot; =&gt; &quot;falcon&quot;, &quot;age&quot; =&gt; &quot;31&quot;, &quot;lang&quot; =&gt; &quot;ja&quot;, &quot;skill&quot; =&gt; &quot;cook,blog&quot; }
+ if !tdb.put(&quot;x12345&quot;, cols)
+   ecode = tdb.ecode
+   STDERR.printf(&quot;get error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+
+ # search for records
+ qry = TDBQRY::new(tdb)
+ qry.addcond(&quot;age&quot;, TDBQRY::QCNUMGE, &quot;20&quot;)
+ qry.addcond(&quot;lang&quot;, TDBQRY::QCSTROR, &quot;ja,en&quot;)
+ qry.setorder(&quot;name&quot;, TDBQRY::QOSTRASC)
+ qry.setlimit(10)
+ res = qry.search
+ res.each do |rkey|
+   rcols = tdb.get(rkey)
+   printf(&quot;name:%s\n&quot;, rcols[&quot;name&quot;])
+ end
+
+ # hash-like usage
+ tdb[&quot;joker&quot;] = { &quot;name&quot; =&gt; &quot;ozma&quot;, &quot;lang&quot; =&gt; &quot;en&quot;, &quot;skill&quot; =&gt; &quot;song,dance&quot; }
+ printf(&quot;%s\n&quot;, tdb[&quot;joker&quot;][&quot;name&quot;])
+ tdb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value[&quot;name&quot;])
+ end
+
+ # close the database
+ if !tdb.close
+   ecode = tdb.ecode
+   STDERR.printf(&quot;close error: %s\n&quot;, tdb.errmsg(ecode))
+ end
+</pre>
+<p>
+The following code is an example to use an abstract database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ adb = ADB::new
+
+ # open the database
+ if !adb.open(&quot;casket.tch&quot;)
+   STDERR.printf(&quot;open error\n&quot;)
+ end
+
+ # store records
+ if !adb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !adb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !adb.put(&quot;baz&quot;, &quot;jump&quot;)
+   STDERR.printf(&quot;put error\n&quot;)
+ end
+
+ # retrieve records
+ value = adb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   STDERR.printf(&quot;get error\n&quot;)
+ end
+
+ # traverse records
+ adb.iterinit
+ while key = adb.iternext
+   value = adb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ adb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, adb[&quot;quux&quot;])
+ adb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !adb.close
+   STDERR.printf(&quot;close error\n&quot;)
+ end
+</pre>
+<h2>LICENSE</h2>
+<pre>
+ Copyright (C) 2006-2009 Mikio Hirabayashi
+ All rights reserved.
+</pre>
+<p>
+Tokyo Cabinet is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License or any
+later version. Tokyo Cabinet is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser
+General Public License for more details. You should have received a copy of
+the GNU Lesser General Public License along with Tokyo Cabinet; if not,
+write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
+Boston, MA 02111-1307 USA.
+</p>
+
+		</div>
+		
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: TokyoCabinet::BDBCUR</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../tokyocabinet-doc_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet-doc.rb">tokyocabinet-doc.rb</a></li>
+					
+						<li><a href="../tokyocabinet_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet.c">tokyocabinet.c</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="../Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000122">::new</a></li>
+					
+					<li><a href="#M000123">#first</a></li>
+					
+					<li><a href="#M000125">#jump</a></li>
+					
+					<li><a href="#M000130">#key</a></li>
+					
+					<li><a href="#M000124">#last</a></li>
+					
+					<li><a href="#M000127">#next</a></li>
+					
+					<li><a href="#M000129">#out</a></li>
+					
+					<li><a href="#M000126">#prev</a></li>
+					
+					<li><a href="#M000128">#put</a></li>
+					
+					<li><a href="#M000131">#val</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../COPYING.html">COPYING</a></li>
+				
+					<li class="file"><a href="../MANIFEST.html">MANIFEST</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet_html.html">TokyoCabinet.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/ADB_html.html">ADB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDB_html.html">BDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDBCUR_html.html">BDBCUR.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/FDB_html.html">FDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/HDB_html.html">HDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDB_html.html">TDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDBQRY_html.html">TDBQRY.html</a></li>
+				
+					<li class="file"><a href="../doc/created_rid.html">created.rid</a></li>
+				
+					<li class="file"><a href="../doc/index_html.html">index.html</a></li>
+				
+					<li class="file"><a href="../doc/js/darkfish_js.html">darkfish.js</a></li>
+				
+					<li class="file"><a href="../doc/js/jquery_js.html">jquery.js</a></li>
+				
+					<li class="file"><a href="../doc/js/quicksearch_js.html">quicksearch.js</a></li>
+				
+					<li class="file"><a href="../doc/js/thickbox-compressed_js.html">thickbox-compressed.js</a></li>
+				
+					<li class="file"><a href="../doc/rdoc_css.html">rdoc.css</a></li>
+				
+					<li class="file"><a href="../doc/tokyocabinet-doc_rb_html.html">tokyocabinet-doc_rb.html</a></li>
+				
+					<li class="file"><a href="../makedoc_sh.html">makedoc.sh</a></li>
+				
+					<li class="file"><a href="../overview_rd.html">overview.rd</a></li>
+				
+					<li class="file"><a href="../package_sh.html">package.sh</a></li>
+				
+					<li class="file"><a href="../tokyocabinet_gemspec.html">tokyocabinet.gemspec</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../TokyoCabinet.html">TokyoCabinet</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB.html">TokyoCabinet::ADB</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB_data.html">TokyoCabinet::ADB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB.html">TokyoCabinet::BDB</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR.html">TokyoCabinet::BDBCUR</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR_data.html">TokyoCabinet::BDBCUR_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB_data.html">TokyoCabinet::BDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB.html">TokyoCabinet::FDB</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB_data.html">TokyoCabinet::FDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB.html">TokyoCabinet::HDB</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB_data.html">TokyoCabinet::HDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB.html">TokyoCabinet::TDB</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY.html">TokyoCabinet::TDBQRY</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY_data.html">TokyoCabinet::TDBQRY_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB_data.html">TokyoCabinet::TDB_data</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">TokyoCabinet::BDBCUR</h1>
+
+		<div id="description">
+			<p>
+Cursor is a mechanism to access each record of B+ tree database in
+ascending or descending order.%%
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="CPCURRENT">CPCURRENT</a></dt>
+				
+				<dd class="description"><p>
+cursor put mode: current
+</p></dd>
+				
+			
+				<dt><a name="CPBEFORE">CPBEFORE</a></dt>
+				
+				<dd class="description"><p>
+cursor put mode: before
+</p></dd>
+				
+			
+				<dt><a name="CPAFTER">CPAFTER</a></dt>
+				
+				<dd class="description"><p>
+cursor put mode: after
+</p></dd>
+				
+			
+				<dt><a name="CPCURRENT">CPCURRENT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CPBEFORE">CPBEFORE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="CPAFTER">CPAFTER</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000122"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(bdb)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a cursor object.%% `<em>bdb</em>&#8217; specifies the B+ tree
+database object.%% The return value is the new cursor object.%% Note that
+the cursor is available only after initialization with the `first&#8217; or
+the `jump&#8217; methods and so on. Moreover, the position of the cursor
+will be indefinite when the database is updated after the initialization of
+the cursor.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 642</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">bdb</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="first-method" class="method-detail ">
+				<a name="M000123"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">first</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Move the cursor to the first record.%% If successful, the return value is
+true, else, it is false. False is returned if there is no record in the
+database.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="first-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 647</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">first</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="jump-method" class="method-detail ">
+				<a name="M000125"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">jump</span><span
+						class="method-args">(key)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Move the cursor to the front of records corresponding a key.%%
+`<em>key</em>&#8217; specifies the key.%% If successful, the return value
+is true, else, it is false. False is returned if there is no record
+corresponding the condition.%% The cursor is set to the first record
+corresponding the key or the next substitute if completely matching record
+does not exist.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="jump-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 659</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">jump</span>(<span class="ruby-identifier">key</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="key-method" class="method-detail ">
+				<a name="M000130"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">key</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the key of the record where the cursor is.%% If successful, the return
+value is the key, else, it is `nil&#8217;. &#8216;nil&#8217; is returned
+when the cursor is at invalid position.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="key-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 688</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">key</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="last-method" class="method-detail ">
+				<a name="M000124"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">last</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Move the cursor to the last record.%% If successful, the return value is
+true, else, it is false. False is returned if there is no record in the
+database.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="last-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 652</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">last</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="next-method" class="method-detail ">
+				<a name="M000127"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">next</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Move the cursor to the next record.%% If successful, the return value is
+true, else, it is false. False is returned if there is no next record.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="next-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 669</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">next</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="out-method" class="method-detail ">
+				<a name="M000129"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">out</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove the record where the cursor is.%% If successful, the return value is
+true, else, it is false. False is returned when the cursor is at invalid
+position.%% After deletion, the cursor is moved to the next record if
+possible.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="out-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 683</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">out</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="prev-method" class="method-detail ">
+				<a name="M000126"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">prev</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Move the cursor to the previous record.%% If successful, the return value
+is true, else, it is false. False is returned if there is no previous
+record.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="prev-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 664</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prev</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="put-method" class="method-detail ">
+				<a name="M000128"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">put</span><span
+						class="method-args">(value, cpmode)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Insert a record around the cursor.%% `<em>value</em>&#8217; specifies the
+value.%% `<em>cpmode</em>&#8217; specifies detail adjustment:
+`TokyoCabinet::BDBCUR::CPCURRENT&#8217;, which means that the value of the
+current record is overwritten, `TokyoCabinet::BDBCUR::CPBEFORE&#8217;,
+which means that the new record is inserted before the current record,
+`TokyoCabinet::BDBCUR::CPAFTER&#8217;, which means that the new record is
+inserted after the current record.%% If successful, the return value is
+true, else, it is false. False is returned when the cursor is at invalid
+position.%% After insertion, the cursor is moved to the inserted record.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="put-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 677</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">put</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">cpmode</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="val-method" class="method-detail ">
+				<a name="M000131"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">val</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the value of the record where the cursor is.%% If successful, the
+return value is the value, else, it is `nil&#8217;. &#8216;nil&#8217; is
+returned when the cursor is at invalid position.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="val-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 693</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">val</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

@@ -93,16 +93,16 @@ ascending or descending order.<br/>
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000060">first</a>&nbsp;&nbsp;
-      <a href="#M000062">jump</a>&nbsp;&nbsp;
-      <a href="#M000067">key</a>&nbsp;&nbsp;
-      <a href="#M000061">last</a>&nbsp;&nbsp;
-      <a href="#M000059">new</a>&nbsp;&nbsp;
-      <a href="#M000064">next</a>&nbsp;&nbsp;
-      <a href="#M000066">out</a>&nbsp;&nbsp;
-      <a href="#M000063">prev</a>&nbsp;&nbsp;
-      <a href="#M000065">put</a>&nbsp;&nbsp;
-      <a href="#M000068">val</a>&nbsp;&nbsp;
+      <a href="#M000064">first</a>&nbsp;&nbsp;
+      <a href="#M000066">jump</a>&nbsp;&nbsp;
+      <a href="#M000071">key</a>&nbsp;&nbsp;
+      <a href="#M000065">last</a>&nbsp;&nbsp;
+      <a href="#M000063">new</a>&nbsp;&nbsp;
+      <a href="#M000068">next</a>&nbsp;&nbsp;
+      <a href="#M000070">out</a>&nbsp;&nbsp;
+      <a href="#M000067">prev</a>&nbsp;&nbsp;
+      <a href="#M000069">put</a>&nbsp;&nbsp;
+      <a href="#M000072">val</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -125,7 +125,7 @@ ascending or descending order.<br/>
           <td class="context-item-value">0</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-cursor <a href="BDBCUR.html#M000065">put</a> mode: current
+cursor <a href="BDBCUR.html#M000069">put</a> mode: current
 
 </td>
         </tr>
@@ -135,7 +135,7 @@ cursor <a href="BDBCUR.html#M000065">put</a> mode: current
           <td class="context-item-value">1</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-cursor <a href="BDBCUR.html#M000065">put</a> mode: before
+cursor <a href="BDBCUR.html#M000069">put</a> mode: before
 
 </td>
         </tr>
@@ -145,7 +145,7 @@ cursor <a href="BDBCUR.html#M000065">put</a> mode: before
           <td class="context-item-value">2</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-cursor <a href="BDBCUR.html#M000065">put</a> mode: after
+cursor <a href="BDBCUR.html#M000069">put</a> mode: after
 
 </td>
         </tr>
@@ -162,12 +162,12 @@ cursor <a href="BDBCUR.html#M000065">put</a> mode: after
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000059" class="method-detail">
-        <a name="M000059"></a>
+      <div id="method-M000063" class="method-detail">
+        <a name="M000063"></a>
 
         <div class="method-heading">
-          <a href="BDBCUR.src/M000059.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000059.html');return false;">
+          <a href="BDBCUR.src/M000063.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000063.html');return false;">
           <span class="method-name">new</span><span class="method-args">(bdb)</span>
           </a>
         </div>
@@ -176,10 +176,10 @@ cursor <a href="BDBCUR.html#M000065">put</a> mode: after
           <p>
 Create a cursor object.<br/> `<em>bdb</em>' specifies the B+ tree
 database object.<br/> The return value is the <a
-href="BDBCUR.html#M000059">new</a> cursor object.<br/> Note that the cursor is
+href="BDBCUR.html#M000063">new</a> cursor object.<br/> Note that the cursor is
 available only after initialization with the `<a
-href="BDBCUR.html#M000060">first</a>' or the `<a
-href="BDBCUR.html#M000062">jump</a>' methods and so on. Moreover, the
+href="BDBCUR.html#M000064">first</a>' or the `<a
+href="BDBCUR.html#M000066">jump</a>' methods and so on. Moreover, the
 position of the cursor will be indefinite when the database is updated
 after the initialization of the cursor.<br/>
 </p>
@@ -188,105 +188,21 @@ after the initialization of the cursor.<br/>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000060" class="method-detail">
-        <a name="M000060"></a>
-
-        <div class="method-heading">
-          <a href="BDBCUR.src/M000060.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000060.html');return false;">
-          <span class="method-name">first</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Move the cursor to the <a href="BDBCUR.html#M000060">first</a> record.<br/> If
-successful, the return value is true, else, it is false. False is returned
-if there is no record in the database.<br/>
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000062" class="method-detail">
-        <a name="M000062"></a>
-
-        <div class="method-heading">
-          <a href="BDBCUR.src/M000062.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000062.html');return false;">
-          <span class="method-name">jump</span><span class="method-args">(key)</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Move the cursor to the front of records corresponding a <a
-href="BDBCUR.html#M000067">key</a>.<br/> `<em><a
-href="BDBCUR.html#M000067">key</a></em>' specifies the <a
-href="BDBCUR.html#M000067">key</a>.<br/> If successful, the return value is
-true, else, it is false. False is returned if there is no record
-corresponding the condition.<br/> The cursor is set to the <a
-href="BDBCUR.html#M000060">first</a> record corresponding the <a
-href="BDBCUR.html#M000067">key</a> or the <a
-href="BDBCUR.html#M000064">next</a> substitute if completely matching
-record does not exist.<br/>
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000067" class="method-detail">
-        <a name="M000067"></a>
-
-        <div class="method-heading">
-          <a href="BDBCUR.src/M000067.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000067.html');return false;">
-          <span class="method-name">key</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Get the <a href="BDBCUR.html#M000067">key</a> of the record where the
-cursor is.<br/> If successful, the return value is the <a
-href="BDBCUR.html#M000067">key</a>, else, it is `nil'.
-&#8216;nil' is returned when the cursor is at invalid position.<br/>
-</p>
-        </div>
-      </div>
-
-      <div id="method-M000061" class="method-detail">
-        <a name="M000061"></a>
-
-        <div class="method-heading">
-          <a href="BDBCUR.src/M000061.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000061.html');return false;">
-          <span class="method-name">last</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p>
-Move the cursor to the <a href="BDBCUR.html#M000061">last</a> record.<br/> If
-successful, the return value is true, else, it is false. False is returned
-if there is no record in the database.<br/>
-</p>
-        </div>
-      </div>
-
       <div id="method-M000064" class="method-detail">
         <a name="M000064"></a>
 
         <div class="method-heading">
           <a href="BDBCUR.src/M000064.html" target="Code" class="method-signature"
             onclick="popupCode('BDBCUR.src/M000064.html');return false;">
-          <span class="method-name">next</span><span class="method-args">()</span>
+          <span class="method-name">first</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Move the cursor to the <a href="BDBCUR.html#M000064">next</a> record.<br/> If
+Move the cursor to the <a href="BDBCUR.html#M000064">first</a> record.<br/> If
 successful, the return value is true, else, it is false. False is returned
-if there is no <a href="BDBCUR.html#M000064">next</a> record.<br/>
+if there is no record in the database.<br/>
 </p>
         </div>
       </div>
@@ -297,6 +213,90 @@ if there is no <a href="BDBCUR.html#M000064">next</a> record.<br/>
         <div class="method-heading">
           <a href="BDBCUR.src/M000066.html" target="Code" class="method-signature"
             onclick="popupCode('BDBCUR.src/M000066.html');return false;">
+          <span class="method-name">jump</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Move the cursor to the front of records corresponding a <a
+href="BDBCUR.html#M000071">key</a>.<br/> `<em><a
+href="BDBCUR.html#M000071">key</a></em>' specifies the <a
+href="BDBCUR.html#M000071">key</a>.<br/> If successful, the return value is
+true, else, it is false. False is returned if there is no record
+corresponding the condition.<br/> The cursor is set to the <a
+href="BDBCUR.html#M000064">first</a> record corresponding the <a
+href="BDBCUR.html#M000071">key</a> or the <a
+href="BDBCUR.html#M000068">next</a> substitute if completely matching
+record does not exist.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000071" class="method-detail">
+        <a name="M000071"></a>
+
+        <div class="method-heading">
+          <a href="BDBCUR.src/M000071.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000071.html');return false;">
+          <span class="method-name">key</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Get the <a href="BDBCUR.html#M000071">key</a> of the record where the
+cursor is.<br/> If successful, the return value is the <a
+href="BDBCUR.html#M000071">key</a>, else, it is `nil'.
+&#8216;nil' is returned when the cursor is at invalid position.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000065" class="method-detail">
+        <a name="M000065"></a>
+
+        <div class="method-heading">
+          <a href="BDBCUR.src/M000065.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000065.html');return false;">
+          <span class="method-name">last</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Move the cursor to the <a href="BDBCUR.html#M000065">last</a> record.<br/> If
+successful, the return value is true, else, it is false. False is returned
+if there is no record in the database.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000068" class="method-detail">
+        <a name="M000068"></a>
+
+        <div class="method-heading">
+          <a href="BDBCUR.src/M000068.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000068.html');return false;">
+          <span class="method-name">next</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Move the cursor to the <a href="BDBCUR.html#M000068">next</a> record.<br/> If
+successful, the return value is true, else, it is false. False is returned
+if there is no <a href="BDBCUR.html#M000068">next</a> record.<br/>
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000070" class="method-detail">
+        <a name="M000070"></a>
+
+        <div class="method-heading">
+          <a href="BDBCUR.src/M000070.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000070.html');return false;">
           <span class="method-name">out</span><span class="method-args">()</span>
           </a>
         </div>
@@ -306,17 +306,17 @@ if there is no <a href="BDBCUR.html#M000064">next</a> record.<br/>
 Remove the record where the cursor is.<br/> If successful, the return value is
 true, else, it is false. False is returned when the cursor is at invalid
 position.<br/> After deletion, the cursor is moved to the <a
-href="BDBCUR.html#M000064">next</a> record if possible.<br/>
+href="BDBCUR.html#M000068">next</a> record if possible.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000063" class="method-detail">
-        <a name="M000063"></a>
+      <div id="method-M000067" class="method-detail">
+        <a name="M000067"></a>
 
         <div class="method-heading">
-          <a href="BDBCUR.src/M000063.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000063.html');return false;">
+          <a href="BDBCUR.src/M000067.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000067.html');return false;">
           <span class="method-name">prev</span><span class="method-args">()</span>
           </a>
         </div>
@@ -330,12 +330,12 @@ record.<br/>
         </div>
       </div>
 
-      <div id="method-M000065" class="method-detail">
-        <a name="M000065"></a>
+      <div id="method-M000069" class="method-detail">
+        <a name="M000069"></a>
 
         <div class="method-heading">
-          <a href="BDBCUR.src/M000065.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000065.html');return false;">
+          <a href="BDBCUR.src/M000069.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000069.html');return false;">
           <span class="method-name">put</span><span class="method-args">(value, cpmode)</span>
           </a>
         </div>
@@ -346,9 +346,9 @@ Insert a record around the cursor.<br/> `<em>value</em>' specifies the
 value.<br/> `<em>cpmode</em>' specifies detail adjustment:
 `TokyoCabinet::BDBCUR::CPCURRENT', which means that the value of the
 current record is overwritten, `TokyoCabinet::BDBCUR::CPBEFORE',
-which means that the <a href="BDBCUR.html#M000059">new</a> record is
+which means that the <a href="BDBCUR.html#M000063">new</a> record is
 inserted before the current record, `TokyoCabinet::BDBCUR::CPAFTER',
-which means that the <a href="BDBCUR.html#M000059">new</a> record is
+which means that the <a href="BDBCUR.html#M000063">new</a> record is
 inserted after the current record.<br/> If successful, the return value is
 true, else, it is false. False is returned when the cursor is at invalid
 position.<br/> After insertion, the cursor is moved to the inserted record.<br/>
@@ -356,12 +356,12 @@ position.<br/> After insertion, the cursor is moved to the inserted record.<br/>
         </div>
       </div>
 
-      <div id="method-M000068" class="method-detail">
-        <a name="M000068"></a>
+      <div id="method-M000072" class="method-detail">
+        <a name="M000072"></a>
 
         <div class="method-heading">
-          <a href="BDBCUR.src/M000068.html" target="Code" class="method-signature"
-            onclick="popupCode('BDBCUR.src/M000068.html');return false;">
+          <a href="BDBCUR.src/M000072.html" target="Code" class="method-signature"
+            onclick="popupCode('BDBCUR.src/M000072.html');return false;">
           <span class="method-name">val</span><span class="method-args">()</span>
           </a>
         </div>

@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: TokyoCabinet::TDBQRY</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../tokyocabinet-doc_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet-doc.rb">tokyocabinet-doc.rb</a></li>
+					
+						<li><a href="../tokyocabinet_c.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="tokyocabinet.c">tokyocabinet.c</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link"><a href="../Object.html">Object</a></p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#M000191">::new</a></li>
+					
+					<li><a href="#M000192">#addcond</a></li>
+					
+					<li><a href="#M000198">#hint</a></li>
+					
+					<li><a href="#M000197">#proc</a></li>
+					
+					<li><a href="#M000195">#search</a></li>
+					
+					<li><a href="#M000196">#searchout</a></li>
+					
+					<li><a href="#M000194">#setlimit</a></li>
+					
+					<li><a href="#M000193">#setorder</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../COPYING.html">COPYING</a></li>
+				
+					<li class="file"><a href="../MANIFEST.html">MANIFEST</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet_html.html">TokyoCabinet.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/ADB_html.html">ADB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDB_html.html">BDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/BDBCUR_html.html">BDBCUR.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/FDB_html.html">FDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/HDB_html.html">HDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDB_html.html">TDB.html</a></li>
+				
+					<li class="file"><a href="../doc/TokyoCabinet/TDBQRY_html.html">TDBQRY.html</a></li>
+				
+					<li class="file"><a href="../doc/created_rid.html">created.rid</a></li>
+				
+					<li class="file"><a href="../doc/index_html.html">index.html</a></li>
+				
+					<li class="file"><a href="../doc/js/darkfish_js.html">darkfish.js</a></li>
+				
+					<li class="file"><a href="../doc/js/jquery_js.html">jquery.js</a></li>
+				
+					<li class="file"><a href="../doc/js/quicksearch_js.html">quicksearch.js</a></li>
+				
+					<li class="file"><a href="../doc/js/thickbox-compressed_js.html">thickbox-compressed.js</a></li>
+				
+					<li class="file"><a href="../doc/rdoc_css.html">rdoc.css</a></li>
+				
+					<li class="file"><a href="../doc/tokyocabinet-doc_rb_html.html">tokyocabinet-doc_rb.html</a></li>
+				
+					<li class="file"><a href="../makedoc_sh.html">makedoc.sh</a></li>
+				
+					<li class="file"><a href="../overview_rd.html">overview.rd</a></li>
+				
+					<li class="file"><a href="../package_sh.html">package.sh</a></li>
+				
+					<li class="file"><a href="../tokyocabinet_gemspec.html">tokyocabinet.gemspec</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../TokyoCabinet.html">TokyoCabinet</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB.html">TokyoCabinet::ADB</a></li>
+				
+					<li><a href="../TokyoCabinet/ADB_data.html">TokyoCabinet::ADB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB.html">TokyoCabinet::BDB</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR.html">TokyoCabinet::BDBCUR</a></li>
+				
+					<li><a href="../TokyoCabinet/BDBCUR_data.html">TokyoCabinet::BDBCUR_data</a></li>
+				
+					<li><a href="../TokyoCabinet/BDB_data.html">TokyoCabinet::BDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB.html">TokyoCabinet::FDB</a></li>
+				
+					<li><a href="../TokyoCabinet/FDB_data.html">TokyoCabinet::FDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB.html">TokyoCabinet::HDB</a></li>
+				
+					<li><a href="../TokyoCabinet/HDB_data.html">TokyoCabinet::HDB_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB.html">TokyoCabinet::TDB</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY.html">TokyoCabinet::TDBQRY</a></li>
+				
+					<li><a href="../TokyoCabinet/TDBQRY_data.html">TokyoCabinet::TDBQRY_data</a></li>
+				
+					<li><a href="../TokyoCabinet/TDB_data.html">TokyoCabinet::TDB_data</a></li>
+				
+					<li><a href="../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">TokyoCabinet::TDBQRY</h1>
+
+		<div id="description">
+			<p>
+Query is a mechanism to search for and retrieve records corresponding
+conditions from table database.%%
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="QCSTREQ">QCSTREQ</a></dt>
+				
+				<dd class="description"><p>
+query condition: string is equal to
+</p></dd>
+				
+			
+				<dt><a name="QCSTRINC">QCSTRINC</a></dt>
+				
+				<dd class="description"><p>
+query condition: string is included in
+</p></dd>
+				
+			
+				<dt><a name="QCSTRBW">QCSTRBW</a></dt>
+				
+				<dd class="description"><p>
+query condition: string begins with
+</p></dd>
+				
+			
+				<dt><a name="QCSTREW">QCSTREW</a></dt>
+				
+				<dd class="description"><p>
+query condition: string ends with
+</p></dd>
+				
+			
+				<dt><a name="QCSTRAND">QCSTRAND</a></dt>
+				
+				<dd class="description"><p>
+query condition: string includes all tokens in
+</p></dd>
+				
+			
+				<dt><a name="QCSTROR">QCSTROR</a></dt>
+				
+				<dd class="description"><p>
+query condition: string includes at least one token in
+</p></dd>
+				
+			
+				<dt><a name="QCSTROREQ">QCSTROREQ</a></dt>
+				
+				<dd class="description"><p>
+query condition: string is equal to at least one token in
+</p></dd>
+				
+			
+				<dt><a name="QCSTRRX">QCSTRRX</a></dt>
+				
+				<dd class="description"><p>
+query condition: string matches regular expressions of
+</p></dd>
+				
+			
+				<dt><a name="QCNUMEQ">QCNUMEQ</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is equal to
+</p></dd>
+				
+			
+				<dt><a name="QCNUMGT">QCNUMGT</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is greater than
+</p></dd>
+				
+			
+				<dt><a name="QCNUMGE">QCNUMGE</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is greater than or equal to
+</p></dd>
+				
+			
+				<dt><a name="QCNUMLT">QCNUMLT</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is less than
+</p></dd>
+				
+			
+				<dt><a name="QCNUMLE">QCNUMLE</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is less than or equal to
+</p></dd>
+				
+			
+				<dt><a name="QCNUMBT">QCNUMBT</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is between two tokens of
+</p></dd>
+				
+			
+				<dt><a name="QCNUMOREQ">QCNUMOREQ</a></dt>
+				
+				<dd class="description"><p>
+query condition: number is equal to at least one token in
+</p></dd>
+				
+			
+				<dt><a name="QCNEGATE">QCNEGATE</a></dt>
+				
+				<dd class="description"><p>
+query condition: negation flag
+</p></dd>
+				
+			
+				<dt><a name="QCNOIDX">QCNOIDX</a></dt>
+				
+				<dd class="description"><p>
+query condition: no index flag
+</p></dd>
+				
+			
+				<dt><a name="QOSTRASC">QOSTRASC</a></dt>
+				
+				<dd class="description"><p>
+order type: string ascending
+</p></dd>
+				
+			
+				<dt><a name="QOSTRDESC">QOSTRDESC</a></dt>
+				
+				<dd class="description"><p>
+order type: string descending
+</p></dd>
+				
+			
+				<dt><a name="QONUMASC">QONUMASC</a></dt>
+				
+				<dd class="description"><p>
+order type: number ascending
+</p></dd>
+				
+			
+				<dt><a name="QONUMDESC">QONUMDESC</a></dt>
+				
+				<dd class="description"><p>
+order type: number descending
+</p></dd>
+				
+			
+				<dt><a name="QPPUT">QPPUT</a></dt>
+				
+				<dd class="description"><p>
+post treatment: modify the record
+</p></dd>
+				
+			
+				<dt><a name="QPOUT">QPOUT</a></dt>
+				
+				<dd class="description"><p>
+post treatment: remove the record
+</p></dd>
+				
+			
+				<dt><a name="QPSTOP">QPSTOP</a></dt>
+				
+				<dd class="description"><p>
+post treatment: stop the iteration
+</p></dd>
+				
+			
+				<dt><a name="QCSTREQ">QCSTREQ</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTRINC">QCSTRINC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTRBW">QCSTRBW</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTREW">QCSTREW</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTRAND">QCSTRAND</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTROR">QCSTROR</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTROREQ">QCSTROREQ</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCSTRRX">QCSTRRX</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMEQ">QCNUMEQ</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMGT">QCNUMGT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMGE">QCNUMGE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMLT">QCNUMLT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMLE">QCNUMLE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMBT">QCNUMBT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNUMOREQ">QCNUMOREQ</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNEGATE">QCNEGATE</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QCNOIDX">QCNOIDX</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QOSTRASC">QOSTRASC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QOSTRDESC">QOSTRDESC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QONUMASC">QONUMASC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QONUMDESC">QONUMDESC</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QPPUT">QPPUT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QPOUT">QPOUT</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+				<dt><a name="QPSTOP">QPSTOP</a></dt>
+				
+				<dd class="description missing-docs">(Not documented)</dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="M000191"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(tdb)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Create a query object.%% `<em>tdb</em>&#8217; specifies the table database
+object.%% The return value is the new query object.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1283</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">tdb</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="addcond-method" class="method-detail ">
+				<a name="M000192"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">addcond</span><span
+						class="method-args">(name, op, expr)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Add a narrowing condition.%% `<em>name</em>&#8217; specifies the name of a
+column. An empty string means the primary key.%% `<em>op</em>&#8217;
+specifies an operation type: `TokyoCabinet::TDBQRY::QCSTREQ&#8217; for
+string which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCSTRINC&#8217; for string which is included in the
+expression, `TokyoCabinet::TDBQRY::QCSTRBW&#8217; for string which begins
+with the expression, `TokyoCabinet::TDBQRY::QCSTREW&#8217; for string which
+ends with the expression, `TokyoCabinet::TDBQRY::QCSTRAND&#8217; for string
+which includes all tokens in the expression,
+`TokyoCabinet::TDBQRY::QCSTROR&#8217; for string which includes at least
+one token in the expression, `TokyoCabinet::TDBQRY::QCSTROREQ&#8217; for
+string which is equal to at least one token in the expression,
+`TokyoCabinet::TDBQRY::QCSTRRX&#8217; for string which matches regular
+expressions of the expression, `TokyoCabinet::TDBQRY::QCNUMEQ&#8217; for
+number which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMGT&#8217; for number which is greater than the
+expression, `TokyoCabinet::TDBQRY::QCNUMGE&#8217; for number which is
+greater than or equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMLT&#8217; for number which is less than the
+expression, `TokyoCabinet::TDBQRY::QCNUMLE&#8217; for number which is less
+than or equal to the expression, `TokyoCabinet::TDBQRY::QCNUMBT&#8217; for
+number which is between two tokens of the expression,
+`TokyoCabinet::TDBQRY::QCNUMOREQ&#8217; for number which is equal to at
+least one token in the expression. All operations can be flagged by
+bitwise-or: `TokyoCabinet::TDBQRY::QCNEGATE&#8217; for negation,
+`TokyoCabinet::TDBQRY::QCNOIDX&#8217; for using no index.%%
+`<em>expr</em>&#8217; specifies an operand exression.%% The return value is
+always `nil&#8217;.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="addcond-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1291</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">addcond</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">op</span>, <span class="ruby-identifier">expr</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="hint-method" class="method-detail ">
+				<a name="M000198"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">hint</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Get the hint of a query object.%% The return value is the hint string.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="hint-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1326</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">hint</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="proc-method" class="method-detail ">
+				<a name="M000197"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">proc</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Process each corresponding record.%% This function needs a block parameter
+of the iterator called for each record. The block receives two parameters.
+The first parameter is the primary key. The second parameter is a hash
+containing columns. It returns flags of the post treatment by bitwise-or:
+`TokyoCabinet::TDBQRY::QPPUT&#8217; to modify the record,
+`TokyoCabinet::TDBQRY::QPOUT&#8217; to remove the record,
+`TokyoCabinet::TDBQRY::QPSTOP&#8217; to stop the iteration.%% If
+successful, the return value is true, else, it is false.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="proc-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1321</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">proc</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="search-method" class="method-detail ">
+				<a name="M000195"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">search</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Execute the search.%% The return value is an array of the primary keys of
+the corresponding records. This method does never fail and return an empty
+array even if no record corresponds.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="search-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1310</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="searchout-method" class="method-detail ">
+				<a name="M000196"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">searchout</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Remove each corresponding record.%% If successful, the return value is
+true, else, it is false.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="searchout-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1315</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">searchout</span>()
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setlimit-method" class="method-detail ">
+				<a name="M000194"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setlimit</span><span
+						class="method-args">(max, skip)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the maximum number of records of the result.%% `<em>max</em>&#8217;
+specifies the maximum number of records of the result. If it is not defined
+or negative, no limit is specified.%% `<em>skip</em>&#8217; specifies the
+maximum number of records of the result. If it is not defined or not more
+than 0, no record is skipped.%% The return value is always `nil&#8217;.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setlimit-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1305</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setlimit</span>(<span class="ruby-identifier">max</span>, <span class="ruby-identifier">skip</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+			<div id="setorder-method" class="method-detail ">
+				<a name="M000193"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">setorder</span><span
+						class="method-args">(name, type)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Set the order of the result.%% `<em>name</em>&#8217; specifies the name of
+a column. An empty string means the primary key.%% `<em>type</em>&#8217;
+specifies the order type: `TokyoCabinet::TDBQRY::QOSTRASC&#8217; for string
+ascending, `TokyoCabinet::TDBQRY::QOSTRDESC&#8217; for string descending,
+`TokyoCabinet::TDBQRY::QONUMASC&#8217; for number ascending,
+`TokyoCabinet::TDBQRY::QONUMDESC&#8217; for number descending.%% The return
+value is always `nil&#8217;.%%
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="setorder-source">
+<pre>
+<span class="ruby-comment cmt"># File tokyocabinet-doc.rb, line 1298</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setorder</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">type</span>)
+      <span class="ruby-comment cmt"># (native code)</span>
+    <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

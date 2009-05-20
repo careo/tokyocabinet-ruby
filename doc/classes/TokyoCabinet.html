@@ -115,7 +115,7 @@ length. Provided operations are the same as ones of hash database.
 Table database is also provided as a variant of hash database. Each record
 is identified by the primary key and has a set of named columns. Although
 there is no concept of data schema, it is possible to search for records
-with complex conditions efficiently by using indexes of arbitrary columns.
+with complex conditions efficiently by using indices of arbitrary columns.
 </p>
 <h3>Setting</h3>
 <p>
@@ -370,6 +370,57 @@ The following code is an example to use a table database.
    STDERR.printf(&quot;close error: %s\n&quot;, tdb.errmsg(ecode))
  end
 </pre>
+<p>
+The following code is an example to use an abstract database.
+</p>
+<pre>
+ require 'tokyocabinet'
+ include TokyoCabinet
+
+ # create the object
+ adb = ADB::new
+
+ # open the database
+ if !adb.open(&quot;casket.tch&quot;)
+   STDERR.printf(&quot;open error\n&quot;)
+ end
+
+ # store records
+ if !adb.put(&quot;foo&quot;, &quot;hop&quot;) ||
+     !adb.put(&quot;bar&quot;, &quot;step&quot;) ||
+     !adb.put(&quot;baz&quot;, &quot;jump&quot;)
+   STDERR.printf(&quot;put error\n&quot;)
+ end
+
+ # retrieve records
+ value = adb.get(&quot;foo&quot;)
+ if value
+   printf(&quot;%s\n&quot;, value)
+ else
+   STDERR.printf(&quot;get error\n&quot;)
+ end
+
+ # traverse records
+ adb.iterinit
+ while key = adb.iternext
+   value = adb.get(key)
+   if value
+     printf(&quot;%s:%s\n&quot;, key, value)
+   end
+ end
+
+ # hash-like usage
+ adb[&quot;quux&quot;] = &quot;touchdown&quot;
+ printf(&quot;%s\n&quot;, adb[&quot;quux&quot;])
+ adb.each do |key, value|
+   printf(&quot;%s:%s\n&quot;, key, value)
+ end
+
+ # close the database
+ if !adb.close
+   STDERR.printf(&quot;close error\n&quot;)
+ end
+</pre>
 <h2>LICENSE</h2>
 <pre>
  Copyright (C) 2006-2009 Mikio Hirabayashi
@@ -404,7 +455,8 @@ Boston, MA 02111-1307 USA.
     <div id="class-list">
       <h3 class="section-bar">Classes and Modules</h3>
 
-      Class <a href="TokyoCabinet/BDB.html" class="link">TokyoCabinet::BDB</a><br />
+      Class <a href="TokyoCabinet/ADB.html" class="link">TokyoCabinet::ADB</a><br />
+Class <a href="TokyoCabinet/BDB.html" class="link">TokyoCabinet::BDB</a><br />
 Class <a href="TokyoCabinet/BDBCUR.html" class="link">TokyoCabinet::BDBCUR</a><br />
 Class <a href="TokyoCabinet/FDB.html" class="link">TokyoCabinet::FDB</a><br />
 Class <a href="TokyoCabinet/HDB.html" class="link">TokyoCabinet::HDB</a><br />

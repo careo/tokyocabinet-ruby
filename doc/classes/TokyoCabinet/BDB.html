@@ -82,9 +82,9 @@
       <p>
 B+ tree database is a file containing a B+ tree and is handled with the B+
 tree database API. Before operations to store or retrieve records, it is
-necessary to <a href="BDB.html#M000008">open</a> a database file and
+necessary to <a href="BDB.html#M000009">open</a> a database file and
 connect the B+ tree database object to it. To avoid data missing or
-corruption, it is important to <a href="BDB.html#M000009">close</a> every
+corruption, it is important to <a href="BDB.html#M000010">close</a> every
 database file when it is no longer in use.<br/> Except for the interface
 below, methods compatible with the `Hash' class are also provided;
 `[]', `[]=', `store', `delete', `fetch',
@@ -102,40 +102,41 @@ below, methods compatible with the `Hash' class are also provided;
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000024">adddouble</a>&nbsp;&nbsp;
-      <a href="#M000023">addint</a>&nbsp;&nbsp;
-      <a href="#M000009">close</a>&nbsp;&nbsp;
-      <a href="#M000028">copy</a>&nbsp;&nbsp;
+      <a href="#M000025">adddouble</a>&nbsp;&nbsp;
+      <a href="#M000024">addint</a>&nbsp;&nbsp;
+      <a href="#M000010">close</a>&nbsp;&nbsp;
+      <a href="#M000029">copy</a>&nbsp;&nbsp;
       <a href="#M000003">ecode</a>&nbsp;&nbsp;
       <a href="#M000002">errmsg</a>&nbsp;&nbsp;
-      <a href="#M000034">fsiz</a>&nbsp;&nbsp;
-      <a href="#M000022">fwmkeys</a>&nbsp;&nbsp;
-      <a href="#M000017">get</a>&nbsp;&nbsp;
-      <a href="#M000018">getlist</a>&nbsp;&nbsp;
+      <a href="#M000035">fsiz</a>&nbsp;&nbsp;
+      <a href="#M000023">fwmkeys</a>&nbsp;&nbsp;
+      <a href="#M000018">get</a>&nbsp;&nbsp;
+      <a href="#M000019">getlist</a>&nbsp;&nbsp;
       <a href="#M000001">new</a>&nbsp;&nbsp;
-      <a href="#M000008">open</a>&nbsp;&nbsp;
-      <a href="#M000026">optimize</a>&nbsp;&nbsp;
-      <a href="#M000015">out</a>&nbsp;&nbsp;
-      <a href="#M000016">outlist</a>&nbsp;&nbsp;
-      <a href="#M000032">path</a>&nbsp;&nbsp;
-      <a href="#M000010">put</a>&nbsp;&nbsp;
-      <a href="#M000012">putcat</a>&nbsp;&nbsp;
-      <a href="#M000013">putdup</a>&nbsp;&nbsp;
-      <a href="#M000011">putkeep</a>&nbsp;&nbsp;
-      <a href="#M000014">putlist</a>&nbsp;&nbsp;
-      <a href="#M000021">range</a>&nbsp;&nbsp;
-      <a href="#M000033">rnum</a>&nbsp;&nbsp;
+      <a href="#M000009">open</a>&nbsp;&nbsp;
+      <a href="#M000027">optimize</a>&nbsp;&nbsp;
+      <a href="#M000016">out</a>&nbsp;&nbsp;
+      <a href="#M000017">outlist</a>&nbsp;&nbsp;
+      <a href="#M000033">path</a>&nbsp;&nbsp;
+      <a href="#M000011">put</a>&nbsp;&nbsp;
+      <a href="#M000013">putcat</a>&nbsp;&nbsp;
+      <a href="#M000014">putdup</a>&nbsp;&nbsp;
+      <a href="#M000012">putkeep</a>&nbsp;&nbsp;
+      <a href="#M000015">putlist</a>&nbsp;&nbsp;
+      <a href="#M000022">range</a>&nbsp;&nbsp;
+      <a href="#M000034">rnum</a>&nbsp;&nbsp;
       <a href="#M000006">setcache</a>&nbsp;&nbsp;
       <a href="#M000004">setcmpfunc</a>&nbsp;&nbsp;
+      <a href="#M000008">setdfunit</a>&nbsp;&nbsp;
       <a href="#M000007">setxmsiz</a>&nbsp;&nbsp;
-      <a href="#M000025">sync</a>&nbsp;&nbsp;
-      <a href="#M000031">tranabort</a>&nbsp;&nbsp;
-      <a href="#M000029">tranbegin</a>&nbsp;&nbsp;
-      <a href="#M000030">trancommit</a>&nbsp;&nbsp;
+      <a href="#M000026">sync</a>&nbsp;&nbsp;
+      <a href="#M000032">tranabort</a>&nbsp;&nbsp;
+      <a href="#M000030">tranbegin</a>&nbsp;&nbsp;
+      <a href="#M000031">trancommit</a>&nbsp;&nbsp;
       <a href="#M000005">tune</a>&nbsp;&nbsp;
-      <a href="#M000027">vanish</a>&nbsp;&nbsp;
-      <a href="#M000019">vnum</a>&nbsp;&nbsp;
-      <a href="#M000020">vsiz</a>&nbsp;&nbsp;
+      <a href="#M000028">vanish</a>&nbsp;&nbsp;
+      <a href="#M000020">vnum</a>&nbsp;&nbsp;
+      <a href="#M000021">vsiz</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -228,7 +229,7 @@ error code: invalid record header
           <td class="context-item-value">7</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="BDB.html#M000008">open</a> error
+error code: <a href="BDB.html#M000009">open</a> error
 
 </td>
         </tr>
@@ -238,7 +239,7 @@ error code: <a href="BDB.html#M000008">open</a> error
           <td class="context-item-value">8</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="BDB.html#M000009">close</a> error
+error code: <a href="BDB.html#M000010">close</a> error
 
 </td>
         </tr>
@@ -258,7 +259,7 @@ error code: trunc error
           <td class="context-item-value">10</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-error code: <a href="BDB.html#M000025">sync</a> error
+error code: <a href="BDB.html#M000026">sync</a> error
 
 </td>
         </tr>
@@ -478,8 +479,8 @@ tuning option: compress each record with TCBS
           <td class="context-item-value">1 &lt;&lt; 0</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: <a
-href="BDB.html#M000008">open</a> as a reader
+<a href="BDB.html#M000009">open</a> mode: <a
+href="BDB.html#M000009">open</a> as a reader
 
 </td>
         </tr>
@@ -489,8 +490,8 @@ href="BDB.html#M000008">open</a> as a reader
           <td class="context-item-value">1 &lt;&lt; 1</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: <a
-href="BDB.html#M000008">open</a> as a writer
+<a href="BDB.html#M000009">open</a> mode: <a
+href="BDB.html#M000009">open</a> as a writer
 
 </td>
         </tr>
@@ -500,7 +501,7 @@ href="BDB.html#M000008">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 2</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: writer creating
+<a href="BDB.html#M000009">open</a> mode: writer creating
 
 </td>
         </tr>
@@ -510,7 +511,7 @@ href="BDB.html#M000008">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 3</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: writer truncating
+<a href="BDB.html#M000009">open</a> mode: writer truncating
 
 </td>
         </tr>
@@ -520,8 +521,8 @@ href="BDB.html#M000008">open</a> as a writer
           <td class="context-item-value">1 &lt;&lt; 4</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: <a
-href="BDB.html#M000008">open</a> without locking
+<a href="BDB.html#M000009">open</a> mode: <a
+href="BDB.html#M000009">open</a> without locking
 
 </td>
         </tr>
@@ -531,7 +532,7 @@ href="BDB.html#M000008">open</a> without locking
           <td class="context-item-value">1 &lt;&lt; 5</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: lock without blocking
+<a href="BDB.html#M000009">open</a> mode: lock without blocking
 
 </td>
         </tr>
@@ -541,7 +542,7 @@ href="BDB.html#M000008">open</a> without locking
           <td class="context-item-value">1 &lt;&lt; 6</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc">
-<a href="BDB.html#M000008">open</a> mode: synchronize every transaction
+<a href="BDB.html#M000009">open</a> mode: synchronize every transaction
 
 </td>
         </tr>
@@ -578,12 +579,12 @@ href="BDB.html#M000001">new</a> B+ tree database object.<br/>
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000024" class="method-detail">
-        <a name="M000024"></a>
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000024.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000024.html');return false;">
+          <a href="BDB.src/M000025.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000025.html');return false;">
           <span class="method-name">adddouble</span><span class="method-args">(key, num)</span>
           </a>
         </div>
@@ -602,12 +603,12 @@ the `d' operator after retrieval.<br/>
         </div>
       </div>
 
-      <div id="method-M000023" class="method-detail">
-        <a name="M000023"></a>
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000023.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000023.html');return false;">
+          <a href="BDB.src/M000024.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000024.html');return false;">
           <span class="method-name">addint</span><span class="method-args">(key, num)</span>
           </a>
         </div>
@@ -626,12 +627,12 @@ the `i' operator after retrieval.<br/>
         </div>
       </div>
 
-      <div id="method-M000009" class="method-detail">
-        <a name="M000009"></a>
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000009.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000009.html');return false;">
+          <a href="BDB.src/M000010.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000010.html');return false;">
           <span class="method-name">close</span><span class="method-args">()</span>
           </a>
         </div>
@@ -641,18 +642,18 @@ the `i' operator after retrieval.<br/>
 Close the database file.<br/> If successful, the return value is true, else,
 it is false.<br/> Update of a database is assured to be written when the
 database is closed. If a writer opens a database but does not <a
-href="BDB.html#M000009">close</a> it appropriately, the database will be
+href="BDB.html#M000010">close</a> it appropriately, the database will be
 broken.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000028" class="method-detail">
-        <a name="M000028"></a>
+      <div id="method-M000029" class="method-detail">
+        <a name="M000029"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000028.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000028.html');return false;">
+          <a href="BDB.src/M000029.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000029.html');return false;">
           <span class="method-name">copy</span><span class="method-args">(path)</span>
           </a>
         </div>
@@ -660,8 +661,8 @@ broken.<br/>
         <div class="method-description">
           <p>
 Copy the database file.<br/> `<em><a
-href="BDB.html#M000032">path</a></em>' specifies the <a
-href="BDB.html#M000032">path</a> of the destination file. If it begins with
+href="BDB.html#M000033">path</a></em>' specifies the <a
+href="BDB.html#M000033">path</a> of the destination file. If it begins with
 `@', the trailing substring is executed as a command line.<br/> If
 successful, the return value is true, else, it is false. False is returned
 if the executed command returns non-zero code.<br/> The database file is
@@ -693,11 +694,11 @@ error code.<br/> The following error codes are defined:
 `TokyoCabinet::BDB::ENOPERM' for no permission,
 `TokyoCabinet::BDB::EMETA' for invalid meta data,
 `TokyoCabinet::BDB::ERHEAD' for invalid record header,
-`TokyoCabinet::BDB::EOPEN' for <a href="BDB.html#M000008">open</a>
+`TokyoCabinet::BDB::EOPEN' for <a href="BDB.html#M000009">open</a>
 error, `TokyoCabinet::BDB::ECLOSE' for <a
-href="BDB.html#M000009">close</a> error, `TokyoCabinet::BDB::ETRUNC'
+href="BDB.html#M000010">close</a> error, `TokyoCabinet::BDB::ETRUNC'
 for trunc error, `TokyoCabinet::BDB::ESYNC' for <a
-href="BDB.html#M000025">sync</a> error, `TokyoCabinet::BDB::ESTAT'
+href="BDB.html#M000026">sync</a> error, `TokyoCabinet::BDB::ESTAT'
 for stat error, `TokyoCabinet::BDB::ESEEK' for seek error,
 `TokyoCabinet::BDB::EREAD' for read error,
 `TokyoCabinet::BDB::EWRITE' for write error,
@@ -734,12 +735,12 @@ The return value is the message string of the error code.<br/>
         </div>
       </div>
 
-      <div id="method-M000034" class="method-detail">
-        <a name="M000034"></a>
+      <div id="method-M000035" class="method-detail">
+        <a name="M000035"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000034.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000034.html');return false;">
+          <a href="BDB.src/M000035.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000035.html');return false;">
           <span class="method-name">fsiz</span><span class="method-args">()</span>
           </a>
         </div>
@@ -752,12 +753,12 @@ database file or 0 if the object does not connect to any database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000022" class="method-detail">
-        <a name="M000022"></a>
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000022.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000022.html');return false;">
+          <a href="BDB.src/M000023.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000023.html');return false;">
           <span class="method-name">fwmkeys</span><span class="method-args">(prefix, max)</span>
           </a>
         </div>
@@ -774,12 +775,12 @@ even if no record corresponds.<br/>
         </div>
       </div>
 
-      <div id="method-M000017" class="method-detail">
-        <a name="M000017"></a>
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000017.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000017.html');return false;">
+          <a href="BDB.src/M000018.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000018.html');return false;">
           <span class="method-name">get</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -794,12 +795,12 @@ duplicated records is specified, the value of the first one is selected.<br/>
         </div>
       </div>
 
-      <div id="method-M000018" class="method-detail">
-        <a name="M000018"></a>
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000018.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000018.html');return false;">
+          <a href="BDB.src/M000019.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000019.html');return false;">
           <span class="method-name">getlist</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -813,12 +814,12 @@ corresponding records. `nil' is returned if no record corresponds.<br/>
         </div>
       </div>
 
-      <div id="method-M000008" class="method-detail">
-        <a name="M000008"></a>
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000008.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000008.html');return false;">
+          <a href="BDB.src/M000009.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000009.html');return false;">
           <span class="method-name">open</span><span class="method-args">(path, omode)</span>
           </a>
         </div>
@@ -826,8 +827,8 @@ corresponding records. `nil' is returned if no record corresponds.<br/>
         <div class="method-description">
           <p>
 Open a database file.<br/> `<em><a
-href="BDB.html#M000032">path</a></em>' specifies the <a
-href="BDB.html#M000032">path</a> of the database file.<br/>
+href="BDB.html#M000033">path</a></em>' specifies the <a
+href="BDB.html#M000033">path</a> of the database file.<br/>
 `<em>omode</em>' specifies the connection mode:
 `TokyoCabinet::BDB::OWRITER' as a writer,
 `TokyoCabinet::BDB::OREADER' as a reader. If the mode is
@@ -848,12 +849,12 @@ specified.<br/> If successful, the return value is true, else, it is false.<br/>
         </div>
       </div>
 
-      <div id="method-M000026" class="method-detail">
-        <a name="M000026"></a>
+      <div id="method-M000027" class="method-detail">
+        <a name="M000027"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000026.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000026.html');return false;">
+          <a href="BDB.src/M000027.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000027.html');return false;">
           <span class="method-name">optimize</span><span class="method-args">(lmemb, nmemb, bnum, apow, fpow, opts)</span>
           </a>
         </div>
@@ -888,12 +889,12 @@ data fragmentation by successive updating.<br/>
         </div>
       </div>
 
-      <div id="method-M000015" class="method-detail">
-        <a name="M000015"></a>
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000015.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000015.html');return false;">
+          <a href="BDB.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000016.html');return false;">
           <span class="method-name">out</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -907,12 +908,12 @@ records is specified, the value of the first one is selected.<br/>
         </div>
       </div>
 
-      <div id="method-M000016" class="method-detail">
-        <a name="M000016"></a>
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000016.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000016.html');return false;">
+          <a href="BDB.src/M000017.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000017.html');return false;">
           <span class="method-name">outlist</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -926,31 +927,31 @@ records is specified, all of them are removed.<br/>
         </div>
       </div>
 
-      <div id="method-M000032" class="method-detail">
-        <a name="M000032"></a>
+      <div id="method-M000033" class="method-detail">
+        <a name="M000033"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000032.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000032.html');return false;">
+          <a href="BDB.src/M000033.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000033.html');return false;">
           <span class="method-name">path</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-Get the <a href="BDB.html#M000032">path</a> of the database file.<br/> The
-return value is the <a href="BDB.html#M000032">path</a> of the database
+Get the <a href="BDB.html#M000033">path</a> of the database file.<br/> The
+return value is the <a href="BDB.html#M000033">path</a> of the database
 file or `nil' if the object does not connect to any database file.<br/>
 </p>
         </div>
       </div>
 
-      <div id="method-M000010" class="method-detail">
-        <a name="M000010"></a>
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000010.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000010.html');return false;">
+          <a href="BDB.src/M000011.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000011.html');return false;">
           <span class="method-name">put</span><span class="method-args">(key, value)</span>
           </a>
         </div>
@@ -965,12 +966,12 @@ the database, it is overwritten.<br/>
         </div>
       </div>
 
-      <div id="method-M000012" class="method-detail">
-        <a name="M000012"></a>
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000012.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000012.html');return false;">
+          <a href="BDB.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000013.html');return false;">
           <span class="method-name">putcat</span><span class="method-args">(key, value)</span>
           </a>
         </div>
@@ -986,12 +987,12 @@ record is created.<br/>
         </div>
       </div>
 
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000013.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000013.html');return false;">
+          <a href="BDB.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000014.html');return false;">
           <span class="method-name">putdup</span><span class="method-args">(key, value)</span>
           </a>
         </div>
@@ -1007,12 +1008,12 @@ record is placed after the existing one.<br/>
         </div>
       </div>
 
-      <div id="method-M000011" class="method-detail">
-        <a name="M000011"></a>
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000011.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000011.html');return false;">
+          <a href="BDB.src/M000012.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000012.html');return false;">
           <span class="method-name">putkeep</span><span class="method-args">(key, value)</span>
           </a>
         </div>
@@ -1027,12 +1028,12 @@ the same key exists in the database, this method has no effect.<br/>
         </div>
       </div>
 
-      <div id="method-M000014" class="method-detail">
-        <a name="M000014"></a>
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000014.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000014.html');return false;">
+          <a href="BDB.src/M000015.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000015.html');return false;">
           <span class="method-name">putlist</span><span class="method-args">(key, values)</span>
           </a>
         </div>
@@ -1049,12 +1050,12 @@ one.<br/>
         </div>
       </div>
 
-      <div id="method-M000021" class="method-detail">
-        <a name="M000021"></a>
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000021.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000021.html');return false;">
+          <a href="BDB.src/M000022.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000022.html');return false;">
           <span class="method-name">range</span><span class="method-args">(bkey, binc, ekey, einc, max)</span>
           </a>
         </div>
@@ -1077,12 +1078,12 @@ corresponds.<br/>
         </div>
       </div>
 
-      <div id="method-M000033" class="method-detail">
-        <a name="M000033"></a>
+      <div id="method-M000034" class="method-detail">
+        <a name="M000034"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000033.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000033.html');return false;">
+          <a href="BDB.src/M000034.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000034.html');return false;">
           <span class="method-name">rnum</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1146,6 +1147,27 @@ being opened.<br/>
         </div>
       </div>
 
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="BDB.src/M000008.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000008.html');return false;">
+          <span class="method-name">setdfunit</span><span class="method-args">(dfunit)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Set the unit step number of auto defragmentation.<br/> `<em>dfunit</em>'
+specifie the unit step number. If it is not more than 0, the auto
+defragmentation is disabled. It is disabled by default.<br/> If successful,
+the return value is true, else, it is false.<br/> Note that the
+defragmentation parameters should be set before the database is opened.<br/>
+</p>
+        </div>
+      </div>
+
       <div id="method-M000007" class="method-detail">
         <a name="M000007"></a>
 
@@ -1167,12 +1189,12 @@ mapping parameters should be set before the database is opened.<br/>
         </div>
       </div>
 
-      <div id="method-M000025" class="method-detail">
-        <a name="M000025"></a>
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000025.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000025.html');return false;">
+          <a href="BDB.src/M000026.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000026.html');return false;">
           <span class="method-name">sync</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1186,12 +1208,12 @@ another process connects the same database file.<br/>
         </div>
       </div>
 
-      <div id="method-M000031" class="method-detail">
-        <a name="M000031"></a>
+      <div id="method-M000032" class="method-detail">
+        <a name="M000032"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000031.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000031.html');return false;">
+          <a href="BDB.src/M000032.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000032.html');return false;">
           <span class="method-name">tranabort</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1205,12 +1227,12 @@ state of the database is rollbacked to before transaction.<br/>
         </div>
       </div>
 
-      <div id="method-M000029" class="method-detail">
-        <a name="M000029"></a>
+      <div id="method-M000030" class="method-detail">
+        <a name="M000030"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000029.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000029.html');return false;">
+          <a href="BDB.src/M000030.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000030.html');return false;">
           <span class="method-name">tranbegin</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1229,12 +1251,12 @@ transaction, the transaction is aborted implicitly.<br/>
         </div>
       </div>
 
-      <div id="method-M000030" class="method-detail">
-        <a name="M000030"></a>
+      <div id="method-M000031" class="method-detail">
+        <a name="M000031"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000030.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000030.html');return false;">
+          <a href="BDB.src/M000031.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000031.html');return false;">
           <span class="method-name">trancommit</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1290,12 +1312,12 @@ opened.<br/>
         </div>
       </div>
 
-      <div id="method-M000027" class="method-detail">
-        <a name="M000027"></a>
+      <div id="method-M000028" class="method-detail">
+        <a name="M000028"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000027.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000027.html');return false;">
+          <a href="BDB.src/M000028.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000028.html');return false;">
           <span class="method-name">vanish</span><span class="method-args">()</span>
           </a>
         </div>
@@ -1308,12 +1330,12 @@ false.<br/>
         </div>
       </div>
 
-      <div id="method-M000019" class="method-detail">
-        <a name="M000019"></a>
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000019.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000019.html');return false;">
+          <a href="BDB.src/M000020.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000020.html');return false;">
           <span class="method-name">vnum</span><span class="method-args">(key)</span>
           </a>
         </div>
@@ -1327,12 +1349,12 @@ corresponding records, else, it is 0.<br/>
         </div>
       </div>
 
-      <div id="method-M000020" class="method-detail">
-        <a name="M000020"></a>
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
 
         <div class="method-heading">
-          <a href="BDB.src/M000020.html" target="Code" class="method-signature"
-            onclick="popupCode('BDB.src/M000020.html');return false;">
+          <a href="BDB.src/M000021.html" target="Code" class="method-signature"
+            onclick="popupCode('BDB.src/M000021.html');return false;">
           <span class="method-name">vsiz</span><span class="method-args">(key)</span>
           </a>
         </div>

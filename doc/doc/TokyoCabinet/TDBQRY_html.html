@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>File: TDBQRY.html [RDoc Documentation]</title>
+
+	<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet" />
+
+	<script src="../../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+</head>
+
+<body class="file">
+	<div id="metadata">
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../../COPYING.html">COPYING</a></li>
+				
+					<li class="file"><a href="../../MANIFEST.html">MANIFEST</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet_html.html">TokyoCabinet.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/ADB_html.html">ADB.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/BDB_html.html">BDB.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/BDBCUR_html.html">BDBCUR.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/FDB_html.html">FDB.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/HDB_html.html">HDB.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/TDB_html.html">TDB.html</a></li>
+				
+					<li class="file"><a href="../../doc/TokyoCabinet/TDBQRY_html.html">TDBQRY.html</a></li>
+				
+					<li class="file"><a href="../../doc/created_rid.html">created.rid</a></li>
+				
+					<li class="file"><a href="../../doc/index_html.html">index.html</a></li>
+				
+					<li class="file"><a href="../../doc/js/darkfish_js.html">darkfish.js</a></li>
+				
+					<li class="file"><a href="../../doc/js/jquery_js.html">jquery.js</a></li>
+				
+					<li class="file"><a href="../../doc/js/quicksearch_js.html">quicksearch.js</a></li>
+				
+					<li class="file"><a href="../../doc/js/thickbox-compressed_js.html">thickbox-compressed.js</a></li>
+				
+					<li class="file"><a href="../../doc/rdoc_css.html">rdoc.css</a></li>
+				
+					<li class="file"><a href="../../doc/tokyocabinet-doc_rb_html.html">tokyocabinet-doc_rb.html</a></li>
+				
+					<li class="file"><a href="../../makedoc_sh.html">makedoc.sh</a></li>
+				
+					<li class="file"><a href="../../overview_rd.html">overview.rd</a></li>
+				
+					<li class="file"><a href="../../package_sh.html">package.sh</a></li>
+				
+					<li class="file"><a href="../../tokyocabinet_gemspec.html">tokyocabinet.gemspec</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../../TokyoCabinet.html">TokyoCabinet</a></li>
+				
+					<li><a href="../../TokyoCabinet/ADB.html">TokyoCabinet::ADB</a></li>
+				
+					<li><a href="../../TokyoCabinet/ADB_data.html">TokyoCabinet::ADB_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/BDB.html">TokyoCabinet::BDB</a></li>
+				
+					<li><a href="../../TokyoCabinet/BDBCUR.html">TokyoCabinet::BDBCUR</a></li>
+				
+					<li><a href="../../TokyoCabinet/BDBCUR_data.html">TokyoCabinet::BDBCUR_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/BDB_data.html">TokyoCabinet::BDB_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/FDB.html">TokyoCabinet::FDB</a></li>
+				
+					<li><a href="../../TokyoCabinet/FDB_data.html">TokyoCabinet::FDB_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/HDB.html">TokyoCabinet::HDB</a></li>
+				
+					<li><a href="../../TokyoCabinet/HDB_data.html">TokyoCabinet::HDB_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/TDB.html">TokyoCabinet::TDB</a></li>
+				
+					<li><a href="../../TokyoCabinet/TDBQRY.html">TokyoCabinet::TDBQRY</a></li>
+				
+					<li><a href="../../TokyoCabinet/TDBQRY_data.html">TokyoCabinet::TDBQRY_data</a></li>
+				
+					<li><a href="../../TokyoCabinet/TDB_data.html">TokyoCabinet::TDB_data</a></li>
+				
+					<li><a href="../../Object.html">Object</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<p>
+<?xml version=&#8220;1.0&#8220; encoding=&#8220;utf-8&#8221;?> <!DOCTYPE
+html PUBLIC &#8220;-//W3C//DTD XHTML 1.0 Strict//EN&#8220;
+</p>
+<pre>
+        &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+</pre>
+<p>
+<html xmlns=&#8220;<a
+href="http://www.w3.org/1999/xhtml">www.w3.org/1999/xhtml</a>&#8220;
+xml:lang=&#8220;en&#8221; lang=&#8220;en&#8221;> <head>
+</p>
+<pre>
+        &lt;meta content=&quot;text/html; charset=utf-8&quot; http-equiv=&quot;Content-Type&quot; /&gt;
+
+        &lt;title&gt;Class: TokyoCabinet::TDBQRY&lt;/title&gt;
+
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;../rdoc.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;
+
+        &lt;script src=&quot;../js/jquery.js&quot; type=&quot;text/javascript&quot;
+                charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;../js/thickbox-compressed.js&quot; type=&quot;text/javascript&quot;
+                charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;../js/quicksearch.js&quot; type=&quot;text/javascript&quot;
+                charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;../js/darkfish.js&quot; type=&quot;text/javascript&quot;
+                charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+</pre>
+<p>
+</head> <body class=&#8220;class&#8221;>
+</p>
+<pre>
+        &lt;div id=&quot;metadata&quot;&gt;
+                &lt;div id=&quot;file-metadata&quot;&gt;
+                        &lt;div id=&quot;file-list-section&quot; class=&quot;section&quot;&gt;
+                                &lt;h3 class=&quot;section-header&quot;&gt;In Files&lt;/h3&gt;
+                                &lt;div class=&quot;section-body&quot;&gt;
+                                        &lt;ul&gt;
+
+                                                &lt;li&gt;&lt;a href=&quot;../tokyocabinet-doc_rb.html?TB_iframe=true&amp;amp;height=550&amp;amp;width=785&quot;
+                                                        class=&quot;thickbox&quot; title=&quot;tokyocabinet-doc.rb&quot;&gt;tokyocabinet-doc.rb&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;/ul&gt;
+                                &lt;/div&gt;
+                        &lt;/div&gt;
+
+                &lt;/div&gt;
+
+                &lt;div id=&quot;class-metadata&quot;&gt;
+
+                        &lt;!-- Parent Class --&gt;
+
+                        &lt;div id=&quot;parent-class-section&quot; class=&quot;section&quot;&gt;
+                                &lt;h3 class=&quot;section-header&quot;&gt;Parent&lt;/h3&gt;
+
+                                &lt;p class=&quot;link&quot;&gt;Object&lt;/p&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;!-- Namespace Contents --&gt;
+
+                        &lt;!-- Method Quickref --&gt;
+
+                        &lt;div id=&quot;method-list-section&quot; class=&quot;section&quot;&gt;
+                                &lt;h3 class=&quot;section-header&quot;&gt;Methods&lt;/h3&gt;
+                                &lt;ul class=&quot;link-list&quot;&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000135&quot;&gt;::new&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000136&quot;&gt;#addcond&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000142&quot;&gt;#hint&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000141&quot;&gt;#proc&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000139&quot;&gt;#search&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000140&quot;&gt;#searchout&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000138&quot;&gt;#setlimit&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;#M000137&quot;&gt;#setorder&lt;/a&gt;&lt;/li&gt;
+
+                                &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Included Modules --&gt;
+
+                &lt;/div&gt;
+
+                &lt;div id=&quot;project-metadata&quot;&gt;
+
+                        &lt;div id=&quot;classindex-section&quot; class=&quot;section project-section&quot;&gt;
+                                &lt;h3 class=&quot;section-header&quot;&gt;Class Index
+                                        &lt;span class=&quot;search-toggle&quot;&gt;&lt;img src=&quot;../images/find.png&quot;
+                                                height=&quot;16&quot; width=&quot;16&quot; alt=&quot;[+]&quot;
+                                                title=&quot;show/hide quicksearch&quot; /&gt;&lt;/span&gt;&lt;/h3&gt;
+                                &lt;form action=&quot;#&quot; method=&quot;get&quot; accept-charset=&quot;utf-8&quot; class=&quot;initially-hidden&quot;&gt;
+                                &lt;fieldset&gt;
+                                        &lt;legend&gt;Quicksearch&lt;/legend&gt;
+                                        &lt;input type=&quot;text&quot; name=&quot;quicksearch&quot; value=&quot;&quot;
+                                                class=&quot;quicksearch-field&quot; /&gt;
+                                &lt;/fieldset&gt;
+                                &lt;/form&gt;
+
+                                &lt;ul class=&quot;link-list&quot;&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet.html&quot;&gt;TokyoCabinet&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/ADB.html&quot;&gt;TokyoCabinet::ADB&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/BDB.html&quot;&gt;TokyoCabinet::BDB&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/BDBCUR.html&quot;&gt;TokyoCabinet::BDBCUR&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/FDB.html&quot;&gt;TokyoCabinet::FDB&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/HDB.html&quot;&gt;TokyoCabinet::HDB&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/TDB.html&quot;&gt;TokyoCabinet::TDB&lt;/a&gt;&lt;/li&gt;
+
+                                        &lt;li&gt;&lt;a href=&quot;../TokyoCabinet/TDBQRY.html&quot;&gt;TokyoCabinet::TDBQRY&lt;/a&gt;&lt;/li&gt;
+
+                                &lt;/ul&gt;
+                                &lt;div id=&quot;no-class-search-results&quot; style=&quot;display: none;&quot;&gt;No matching classes.&lt;/div&gt;
+                        &lt;/div&gt;
+
+                &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div id=&quot;documentation&quot;&gt;
+                &lt;h1 class=&quot;class&quot;&gt;TokyoCabinet::TDBQRY&lt;/h1&gt;
+
+                &lt;div id=&quot;description&quot;&gt;
+                        &lt;p&gt;
+</pre>
+<p>
+Query is a mechanism to search for and retrieve records corresponding
+conditions from table database.<br/> </p>
+</p>
+<pre>
+                &lt;/div&gt;
+
+                &lt;!-- Constants --&gt;
+
+                &lt;div id=&quot;constants-list&quot; class=&quot;section&quot;&gt;
+                        &lt;h3 class=&quot;section-header&quot;&gt;Constants&lt;/h3&gt;
+                        &lt;dl&gt;
+
+                                &lt;dt&gt;&lt;a name=&quot;QCSTREQ&quot;&gt;QCSTREQ&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string is equal to </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTRINC&quot;&gt;QCSTRINC&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string is included in </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTRBW&quot;&gt;QCSTRBW&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string begins with </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTREW&quot;&gt;QCSTREW&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string ends with </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTRAND&quot;&gt;QCSTRAND&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string includes all tokens in </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTROR&quot;&gt;QCSTROR&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string includes at least one token in </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTROREQ&quot;&gt;QCSTROREQ&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string is equal to at least one token in </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCSTRRX&quot;&gt;QCSTRRX&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: string matches regular expressions of </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMEQ&quot;&gt;QCNUMEQ&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is equal to </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMGT&quot;&gt;QCNUMGT&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is greater than </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMGE&quot;&gt;QCNUMGE&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is greater than or equal to </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMLT&quot;&gt;QCNUMLT&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is less than </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMLE&quot;&gt;QCNUMLE&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is less than or equal to </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMBT&quot;&gt;QCNUMBT&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is between two tokens of </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNUMOREQ&quot;&gt;QCNUMOREQ&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: number is equal to at least one token in </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNEGATE&quot;&gt;QCNEGATE&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: negation flag </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QCNOIDX&quot;&gt;QCNOIDX&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+query condition: no index flag </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QOSTRASC&quot;&gt;QOSTRASC&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+order type: string ascending </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QOSTRDESC&quot;&gt;QOSTRDESC&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+order type: string descending </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QONUMASC&quot;&gt;QONUMASC&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+order type: number ascending </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QONUMDESC&quot;&gt;QONUMDESC&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+order type: number descending </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QPPUT&quot;&gt;QPPUT&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+post treatment: modify the record </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QPOUT&quot;&gt;QPOUT&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+post treatment: remove the record </p></dd>
+</p>
+<pre>
+                                &lt;dt&gt;&lt;a name=&quot;QPSTOP&quot;&gt;QPSTOP&lt;/a&gt;&lt;/dt&gt;
+
+                                &lt;dd class=&quot;description&quot;&gt;&lt;p&gt;
+</pre>
+<p>
+post treatment: stop the iteration </p></dd>
+</p>
+<pre>
+                        &lt;/dl&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Attributes --&gt;
+
+                &lt;!-- Methods --&gt;
+
+                &lt;div id=&quot;public-class-method-details&quot; class=&quot;method-section section&quot;&gt;
+                        &lt;h3 class=&quot;section-header&quot;&gt;Public Class Methods&lt;/h3&gt;
+
+                        &lt;div id=&quot;new-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000135&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;new&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;(tdb)&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Create a query object.<br/> `<em>tdb</em>&#8217; specifies the table
+database object.<br/> The return value is the new query object.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;new-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1283</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;initialize&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;tdb&lt;/span&gt;)
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                &lt;/div&gt;
+
+                &lt;div id=&quot;public-instance-method-details&quot; class=&quot;method-section section&quot;&gt;
+                        &lt;h3 class=&quot;section-header&quot;&gt;Public Instance Methods&lt;/h3&gt;
+
+                        &lt;div id=&quot;addcond-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000136&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;addcond&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;(name, op, expr)&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Add a narrowing condition.<br/> `<em>name</em>&#8217; specifies the name of
+a column. An empty string means the primary key.<br/> `<em>op</em>&#8217;
+specifies an operation type: `TokyoCabinet::TDBQRY::QCSTREQ&#8217; for
+string which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCSTRINC&#8217; for string which is included in the
+expression, `TokyoCabinet::TDBQRY::QCSTRBW&#8217; for string which begins
+with the expression, `TokyoCabinet::TDBQRY::QCSTREW&#8217; for string which
+ends with the expression, `TokyoCabinet::TDBQRY::QCSTRAND&#8217; for string
+which includes all tokens in the expression,
+`TokyoCabinet::TDBQRY::QCSTROR&#8217; for string which includes at least
+one token in the expression, `TokyoCabinet::TDBQRY::QCSTROREQ&#8217; for
+string which is equal to at least one token in the expression,
+`TokyoCabinet::TDBQRY::QCSTRRX&#8217; for string which matches regular
+expressions of the expression, `TokyoCabinet::TDBQRY::QCNUMEQ&#8217; for
+number which is equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMGT&#8217; for number which is greater than the
+expression, `TokyoCabinet::TDBQRY::QCNUMGE&#8217; for number which is
+greater than or equal to the expression,
+`TokyoCabinet::TDBQRY::QCNUMLT&#8217; for number which is less than the
+expression, `TokyoCabinet::TDBQRY::QCNUMLE&#8217; for number which is less
+than or equal to the expression, `TokyoCabinet::TDBQRY::QCNUMBT&#8217; for
+number which is between two tokens of the expression,
+`TokyoCabinet::TDBQRY::QCNUMOREQ&#8217; for number which is equal to at
+least one token in the expression. All operations can be flagged by
+bitwise-or: `TokyoCabinet::TDBQRY::QCNEGATE&#8217; for negation,
+`TokyoCabinet::TDBQRY::QCNOIDX&#8217; for using no index.<br/>
+`<em>expr</em>&#8217; specifies an operand exression.<br/> The return value
+is always `nil&#8217;.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;addcond-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1291</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;addcond&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;name&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;op&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;expr&lt;/span&gt;)
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;hint-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000142&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;hint&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Get the hint of a query object.<br/> The return value is the hint
+string.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;hint-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1326</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;hint&lt;/span&gt;()
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;proc-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000141&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;proc&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Process each corresponding record.<br/> This function needs a block
+parameter of the iterator called for each record. The block receives two
+parameters. The first parameter is the primary key. The second parameter is
+a hash containing columns. It returns flags of the post treatment by
+bitwise-or: `TokyoCabinet::TDBQRY::QPPUT&#8217; to modify the record,
+`TokyoCabinet::TDBQRY::QPOUT&#8217; to remove the record,
+`TokyoCabinet::TDBQRY::QPSTOP&#8217; to stop the iteration.<br/> If
+successful, the return value is true, else, it is false.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;proc-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1321</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;proc&lt;/span&gt;()
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;search-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000139&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;search&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Execute the search.<br/> The return value is an array of the primary keys
+of the corresponding records. This method does never fail and return an
+empty array even if no record corresponds.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;search-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1310</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;search&lt;/span&gt;()
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;searchout-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000140&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;searchout&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;()&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Remove each corresponding record.<br/> If successful, the return value is
+true, else, it is false.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;searchout-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1315</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;searchout&lt;/span&gt;()
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;setlimit-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000138&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;setlimit&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;(max, skip)&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Set the maximum number of records of the result.<br/> `<em>max</em>&#8217;
+specifies the maximum number of records of the result. If it is not defined
+or negative, no limit is specified.<br/> `<em>skip</em>&#8217; specifies
+the maximum number of records of the result. If it is not defined or not
+more than 0, no record is skipped.<br/> The return value is always
+`nil&#8217;.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;setlimit-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1305</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;setlimit&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;max&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;skip&lt;/span&gt;)
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                        &lt;div id=&quot;setorder-method&quot; class=&quot;method-detail &quot;&gt;
+                                &lt;a name=&quot;M000137&quot;&gt;&lt;/a&gt;
+
+                                &lt;div class=&quot;method-heading&quot;&gt;
+
+                                        &lt;span class=&quot;method-name&quot;&gt;setorder&lt;/span&gt;&lt;span
+                                                class=&quot;method-args&quot;&gt;(name, type)&lt;/span&gt;
+                                        &lt;span class=&quot;method-click-advice&quot;&gt;click to toggle source&lt;/span&gt;
+
+                                &lt;/div&gt;
+
+                                &lt;div class=&quot;method-description&quot;&gt;
+
+                                        &lt;p&gt;
+</pre>
+<p>
+Set the order of the result.<br/> `<em>name</em>&#8217; specifies the name
+of a column. An empty string means the primary key.<br/>
+`<em>type</em>&#8217; specifies the order type:
+`TokyoCabinet::TDBQRY::QOSTRASC&#8217; for string ascending,
+`TokyoCabinet::TDBQRY::QOSTRDESC&#8217; for string descending,
+`TokyoCabinet::TDBQRY::QONUMASC&#8217; for number ascending,
+`TokyoCabinet::TDBQRY::QONUMDESC&#8217; for number descending.<br/> The
+return value is always `nil&#8217;.<br/> </p>
+</p>
+<pre>
+                                        &lt;div class=&quot;method-source-code&quot;
+                                                id=&quot;setorder-source&quot;&gt;
+</pre>
+<p>
+<pre> <span class=&#8220;ruby-comment cmt&#8221;># File
+tokyocabinet-doc.rb, line 1298</span>
+</p>
+<pre>
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;ruby-identifier&quot;&gt;setorder&lt;/span&gt;(&lt;span class=&quot;ruby-identifier&quot;&gt;name&lt;/span&gt;, &lt;span class=&quot;ruby-identifier&quot;&gt;type&lt;/span&gt;)
+      &lt;span class=&quot;ruby-comment cmt&quot;&gt;# (native code)&lt;/span&gt;
+    &lt;span class=&quot;ruby-keyword kw&quot;&gt;end&lt;/span&gt;&lt;/pre&gt;
+                                        &lt;/div&gt;
+
+                                &lt;/div&gt;
+
+                        &lt;/div&gt;
+
+                &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div id=&quot;rdoc-debugging-section-dump&quot; class=&quot;debugging-section&quot;&gt;
+
+                &lt;p&gt;Disabled; run with --debug to generate this.&lt;/p&gt;
+
+        &lt;/div&gt;
+
+        &lt;div id=&quot;validator-badges&quot;&gt;
+                &lt;p&gt;&lt;small&gt;Generated with the &lt;a href=&quot;http://deveiate.org/projects/Darkfish-Rdoc/&quot;&gt;Darkfish
+                        Rdoc Generator&lt;/a&gt; 1.1.6&lt;/small&gt;.&lt;/p&gt;
+        &lt;/div&gt;
+</pre>
+<p>
+</body> </html>
+</p>
+
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
+</html>
+
